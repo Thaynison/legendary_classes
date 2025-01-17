@@ -1,0 +1,15 @@
+name: legendary_classes
+version: '1.0.0'
+main: www.legendarycommunity.com.br.legendary_classes.Legendary_classes
+api-version: '1.21'
+authors: [ Thaynison ]
+description: Plugin Legendary Community
+depend:
+  - Vault
+  - SimpleClans
+  - AuraSkills
+website: http://www.legendarycommunity.com.br
+commands:
+  classe:
+    description: Abre o menu de seleção de classes.
+    usage: /classe
