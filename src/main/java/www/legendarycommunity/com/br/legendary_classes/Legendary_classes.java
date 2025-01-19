@@ -127,18 +127,19 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
     }
 
     private void connectDatabase() {
-        String host = getConfig().getString("database.host");
-        String database = getConfig().getString("database.name");
-        String user = getConfig().getString("database.user");
-        String password = getConfig().getString("database.password");
-        int port = getConfig().getInt("database.port");
-
         try {
-            connection = DriverManager.getConnection(
-                    "jdbc:mysql://" + host + ":" + port + "/" + database, user, password);
-            getLogger().info("Conexão com o banco de dados bem-sucedida!");
+            if (connection == null || connection.isClosed()) {
+                String host = getConfig().getString("database.host");
+                String database = getConfig().getString("database.name");
+                String user = getConfig().getString("database.user");
+                String password = getConfig().getString("database.password");
+                int port = getConfig().getInt("database.port");
+
+                String url = "jdbc:mysql://" + host + ":" + port + "/" + database + "?autoReconnect=true&useSSL=false";
+                connection = DriverManager.getConnection(url, user, password);
+            }
         } catch (SQLException e) {
-            getLogger().severe("Erro ao conectar ao banco de dados: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 
@@ -657,6 +658,7 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aSuperioridade:"),
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Se auto cura caso estiver encima da grama"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Faz com que todas as plantações ao seu redor, em uma área de 10x10 blocos, cresçam instantaneamente."),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aEconomia:"),
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Custo: $ " + getClassCost(player, "Druida"))
@@ -1238,11 +1240,14 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
             String formattedClassName = " §f[§e" + classLevel + "§f] §f[§b" + className + "§f]";
 
             // Configurar o formato do chat
-            event.setFormat(formattedClassName + " §7" + player.getDisplayName() + " §f" + event.getMessage());
+            String displayName = player.getDisplayName().replace("%", "%%");
+            String message = event.getMessage().replace("%", "%%");
+            event.setFormat(formattedClassName.replace("%", "%%") + " §7" + displayName + " §f" + message);
         } else {
             getLogger().severe("Dados de classe não encontrados no cache para o jogador " + player.getName());
         }
     }
+
 
 
 }

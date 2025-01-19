@@ -1,6 +1,11 @@
 package www.legendarycommunity.com.br.legendary_classes.classes;
 
+import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.World;
+import org.bukkit.block.Block;
+import org.bukkit.block.data.Ageable;
+import org.bukkit.block.data.BlockData;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -147,11 +152,41 @@ public class Druida implements Listener {
     public void onPlayerMove(PlayerMoveEvent event) {
         Player player = event.getPlayer();
         Material blockType = player.getLocation().add(0, -1, 0).getBlock().getType();
+
+        // Verifica se o jogador está em um bloco apropriado
         if (blockType == Material.GRASS_BLOCK || blockType == Material.DIRT || blockType == Material.COARSE_DIRT || blockType == Material.SAND) {
-            if (IsDruida(player)) {
+            if (IsDruida(player)) { // Função personalizada para verificar se o player é "Druida"
                 if (!playersWithEffect.contains(player)) {
                     player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 400, 5)); // 20 segundos
                     playersWithEffect.add(player);
+                }
+
+                // Fazer todas as plantas crescerem instantaneamente dentro de um raio de 10 blocos
+                int radius = 10;
+                Location playerLocation = player.getLocation();
+                World world = player.getWorld();
+
+                for (int x = -radius; x <= radius; x++) {
+                    for (int y = -radius; y <= radius; y++) {
+                        for (int z = -radius; z <= radius; z++) {
+                            Location checkLocation = playerLocation.clone().add(x, y, z);
+                            Block block = world.getBlockAt(checkLocation);
+
+                            // Verifica se o bloco é um tipo de planta que pode crescer
+                            if (block.getType() == Material.WHEAT ||
+                                    block.getType() == Material.CARROTS ||
+                                    block.getType() == Material.POTATOES ||
+                                    block.getType() == Material.BEETROOTS) {
+                                BlockData blockData = block.getBlockData();
+                                if (blockData instanceof Ageable) {
+                                    Ageable ageable = (Ageable) blockData;
+                                    // Faz a planta crescer ao estágio máximo
+                                    ageable.setAge(ageable.getMaximumAge());
+                                    block.setBlockData(ageable);
+                                }
+                            }
+                        }
+                    }
                 }
             }
         } else {
@@ -161,6 +196,7 @@ public class Druida implements Listener {
             }
         }
     }
+
 
     @EventHandler
     public void onBlockBreak(BlockBreakEvent event) {
