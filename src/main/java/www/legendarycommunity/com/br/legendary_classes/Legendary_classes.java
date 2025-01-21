@@ -259,314 +259,6 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
                     ));
                     classMenu.setItem(3, createMenuItem(
                             Material.PAPER,
-                            "Lamia",
-                            ChatColor.translateAlternateColorCodes('&', "&7- &fInformação da &f[&bClasse&f]."),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aDescrição:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Seres sedutores, amaldiçoadas pelo caos."),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aStatus:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível atual: " + playerLevels.getOrDefault("Lamia", 0)),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível máximo: " + maxLevel),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aInferioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Armadura"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Ferramentas"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &bDiamante, &8Netherite"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cVulneravel ao sol."),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aSuperioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Cura-se ao atacar inimigos."),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aEconomia:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Custo: $ " + getClassCost(player, "Lamia"))
-                    ));
-                    classMenu.setItem(4, createMenuItem(
-                            Material.PAPER,
-                            "Nosferatu",
-                            ChatColor.translateAlternateColorCodes('&', "&7- &fInformação da &f[&bClasse&f]."),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aDescrição:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Vampiros deformados pela sede de sangue."),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aStatus:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível atual: " + playerLevels.getOrDefault("Nosferatu", 0)),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível máximo: " + maxLevel),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aInferioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Armadura"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Ferramentas"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &bDiamante, &8Netherite"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cVulneravel ao sol."),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aSuperioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Cura-se ao atacar inimigos."),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Gera uma aura de escuridão que cega os inimigos próximos."),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aEconomia:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Custo: $ " + getClassCost(player, "Nosferatu"))
-                    ));
-                    classMenu.setItem(5, createMenuItem(
-                            Material.PAPER,
-                            "VampiroRei",
-                            ChatColor.translateAlternateColorCodes('&', "&7- &fInformação da &f[&bClasse&f]."),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aDescrição:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Caçadores noturnos, imortais e sedentos."),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aStatus:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível atual: " + playerLevels.getOrDefault("VampiroRei", 0)),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível máximo: " + maxLevel),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aInferioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Armadura"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Ferramentas"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &bDiamante, &8Netherite"),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aSuperioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Cura-se ao atacar inimigos."),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Gera uma aura de escuridão que cega os inimigos próximos."),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Invulneravel ao sol."),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aEconomia:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Custo: $ " + getClassCost(player, "VampiroRei"))
-                    ));
-                    classMenu.setItem(6, createMenuItem(
-                            Material.PAPER,
-                            "Demonio",
-                            ChatColor.translateAlternateColorCodes('&', "&7- &fInformação da &f[&bClasse&f]."),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aDescrição:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Criaturas do inferno, portadoras de dor."),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aStatus:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível atual: " + playerLevels.getOrDefault("Demonio", 0)),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível máximo: " + maxLevel),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aInferioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Armadura"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Ferramentas"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &bDiamante, &8Netherite"),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aSuperioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Lança bolas de fogo que causam dano."),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aEconomia:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Custo: $ " + getClassCost(player, "Demonio"))
-                    ));
-                    classMenu.setItem(7, createMenuItem(
-                            Material.PAPER,
-                            "Albion",
-                            ChatColor.translateAlternateColorCodes('&', "&7- &fInformação da &f[&bClasse&f]."),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aDescrição:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Terras antigas, perdidas no tempo e magia."),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aStatus:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível atual: " + playerLevels.getOrDefault("Albion", 0)),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível máximo: " + maxLevel),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aInferioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Armadura"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Ferramentas"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &bDiamante, &8Netherite"),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aSuperioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Conjura uma tempestade de fogo que causa dano aos inimigos ao redor."),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aEconomia:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Custo: $ " + getClassCost(player, "Albion"))
-                    ));
-                    classMenu.setItem(8, createMenuItem(
-                            Material.PAPER,
-                            "PrincipeInfernal",
-                            ChatColor.translateAlternateColorCodes('&', "&7- &fInformação da &f[&bClasse&f]."),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aDescrição:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Herdeiro do inferno, governante das sombras."),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aStatus:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível atual: " + playerLevels.getOrDefault("PrincipeInfernal", 0)),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível máximo: " + maxLevel),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aInferioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Armadura"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Ferramentas"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &bDiamante, &8Netherite"),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aSuperioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Conjura uma tempestade de fogo que causa dano aos inimigos ao redor."),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Invoca demônios para lutar ao lado do jogador."),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aEconomia:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Custo: $ " + getClassCost(player, "PrincipeInfernal"))
-                    ));
-                    classMenu.setItem(9, createMenuItem(
-                            Material.PAPER,
-                            "Necromancer",
-                            ChatColor.translateAlternateColorCodes('&', "&7- &fInformação da &f[&bClasse&f]."),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aDescrição:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Mestre da morte, controlando almas perdidas."),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aStatus:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível atual: " + playerLevels.getOrDefault("Necromancer", 0)),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível máximo: " + maxLevel),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aInferioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Armadura"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Ferramentas"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &bDiamante, &8Netherite"),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aSuperioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Revive esqueletos e zumbis para lutar ao seu lado dando sua vida em troca."),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aEconomia:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Custo: $ " + getClassCost(player, "Necromancer"))
-                    ));
-                    classMenu.setItem(10, createMenuItem(
-                            Material.PAPER,
-                            "MortoVivo",
-                            ChatColor.translateAlternateColorCodes('&', "&7- &fInformação da &f[&bClasse&f]."),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aDescrição:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Reanimados pela magia, sem alma ou paz."),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aStatus:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível atual: " + playerLevels.getOrDefault("MortoVivo", 0)),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível máximo: " + maxLevel),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aInferioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Armadura"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Ferramentas"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &bDiamante, &8Netherite"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue usar porção de cura."),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aSuperioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Drena vida dos inimigos próximos e os transforma em aliados mortos-vivos."),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aEconomia:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Custo: $ " + getClassCost(player, "MortoVivo"))
-                    ));
-                    classMenu.setItem(11, createMenuItem(
-                            Material.PAPER,
-                            "Overlord",
-                            ChatColor.translateAlternateColorCodes('&', "&7- &fInformação da &f[&bClasse&f]."),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aDescrição:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Feiticeiro milenar, governando o além."),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aStatus:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível atual: " + playerLevels.getOrDefault("Overlord", 0)),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível máximo: " + maxLevel),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aInferioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Armadura"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Ferramentas"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &bDiamante, &8Netherite"),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aSuperioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Lança um poder de Ar explosivo."),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aEconomia:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Custo: $ " + getClassCost(player, "Overlord"))
-                    ));
-                    classMenu.setItem(12, createMenuItem(
-                            Material.PAPER,
-                            "CavaleiroDaFome",
-                            ChatColor.translateAlternateColorCodes('&', "&7- &fInformação da &f[&bClasse&f]."),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aDescrição:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Guerreiro faminto, sem compaixão ou descanso."),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aStatus:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível atual: " + playerLevels.getOrDefault("CavaleiroDaFome", 0)),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível máximo: " + maxLevel),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aInferioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Armadura"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Ferramentas"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &bDiamante, &8Netherite"),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aSuperioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Dano aumentado quando a fome do jogador está baixa."),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Suga a fome total do inimigo"),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aEconomia:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Custo: $ " + getClassCost(player, "CavaleiroDaFome"))
-                    ));
-                    classMenu.setItem(13, createMenuItem(
-                            Material.PAPER,
-                            "CavaleiroDaPeste",
-                            ChatColor.translateAlternateColorCodes('&', "&7- &fInformação da &f[&bClasse&f]."),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aDescrição:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Portador de doenças, sem piedade ou cura."),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aStatus:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível atual: " + playerLevels.getOrDefault("CavaleiroDaPeste", 0)),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível máximo: " + maxLevel),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aInferioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Armadura"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Ferramentas"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &bDiamante, &8Netherite"),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aSuperioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Causa um efeito de veneno em área."),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aEconomia:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Custo: $ " + getClassCost(player, "CavaleiroDaPeste"))
-                    ));
-                    classMenu.setItem(14, createMenuItem(
-                            Material.PAPER,
-                            "CavaleiroDaGuerra",
-                            ChatColor.translateAlternateColorCodes('&', "&7- &fInformação da &f[&bClasse&f]."),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aDescrição:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Soldado eterno, forjado pelo conflito."),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aStatus:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível atual: " + playerLevels.getOrDefault("CavaleiroDaGuerra", 0)),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível máximo: " + maxLevel),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aInferioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Armadura"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Ferramentas"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &bDiamante, &8Netherite"),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aSuperioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Lança lanças que causam dano a múltiplos inimigos em linha reta."),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Possui o dano de combate e critico aumentado."),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aEconomia:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Custo: $ " + getClassCost(player, "CavaleiroDaGuerra"))
-                    ));
-                    classMenu.setItem(15, createMenuItem(
-                            Material.PAPER,
-                            "CavaleiroDaMorte",
-                            ChatColor.translateAlternateColorCodes('&', "&7- &fInformação da &f[&bClasse&f]."),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aDescrição:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Executor das almas, imbatível e sombrio."),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aStatus:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível atual: " + playerLevels.getOrDefault("CavaleiroDaMorte", 0)),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível máximo: " + maxLevel),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aInferioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Armadura"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Ferramentas"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &bDiamante, &8Netherite"),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aSuperioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Golpes causam dano extra e têm chance de matar instantaneamente."),
-                            "",
-                            ChatColor.translateAlternateColorCodes('&', "&aEconomia:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Custo: $ " + getClassCost(player, "CavaleiroDaMorte"))
-                    ));
-                    classMenu.setItem(16, createMenuItem(
-                            Material.PAPER,
                             "Anao",
                             ChatColor.translateAlternateColorCodes('&', "&7- &fInformação da &f[&bClasse&f]."),
                             "",
@@ -591,55 +283,79 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
                             ChatColor.translateAlternateColorCodes('&', "&aEconomia:"),
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Custo: $ " + getClassCost(player, "Anao"))
                     ));
-                    classMenu.setItem(17, createMenuItem(
+                    classMenu.setItem(4, createMenuItem(
                             Material.PAPER,
-                            "AnaoMercador",
+                            "Demonio",
                             ChatColor.translateAlternateColorCodes('&', "&7- &fInformação da &f[&bClasse&f]."),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aDescrição:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Comerciante astuto, com ouro nas mãos."),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Criaturas do inferno, portadoras de dor."),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aStatus:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível atual: " + playerLevels.getOrDefault("AnaoMercador", 0)),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível atual: " + playerLevels.getOrDefault("Demonio", 0)),
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível máximo: " + maxLevel),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aInferioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &8Netherite"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Armadura"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Ferramentas"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &bDiamante, &8Netherite"),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aSuperioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Pode Crafitar todos os tipos de ferramentas"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Pode Crafitar todos os tipos de armaduras"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Recebe resistência ao dano de quedas e aumento de dano com picaretas."),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Possui 50% de sorte aumentada em trocas com villager"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Lança bolas de fogo que causam dano."),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aEconomia:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Custo: $ " + getClassCost(player, "AnaoMercador"))
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Custo: $ " + getClassCost(player, "Demonio"))
                     ));
-                    classMenu.setItem(18, createMenuItem(
+                    classMenu.setItem(5, createMenuItem(
                             Material.PAPER,
-                            "AnaoNobre",
+                            "Lamia",
                             ChatColor.translateAlternateColorCodes('&', "&7- &fInformação da &f[&bClasse&f]."),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aDescrição:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nobre das montanhas, orgulhoso e honrado."),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Seres sedutores, amaldiçoadas pelo caos."),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aStatus:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível atual: " + playerLevels.getOrDefault("AnaoNobre", 0)),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível atual: " + playerLevels.getOrDefault("Lamia", 0)),
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível máximo: " + maxLevel),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aInferioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &8Netherite"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Armadura"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Ferramentas"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &bDiamante, &8Netherite"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cVulneravel ao sol."),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aSuperioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Pode Crafitar todos os tipos de ferramentas"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Pode Crafitar todos os tipos de armaduras"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Recebe resistência ao dano de quedas e aumento de dano com picaretas."),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Possui 100% de sorte aumentada em trocas com villager"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Cura-se ao atacar inimigos."),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aEconomia:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Custo: $ " + getClassCost(player, "AnaoNobre"))
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Custo: $ " + getClassCost(player, "Lamia"))
                     ));
-                    classMenu.setItem(19, createMenuItem(
+                    classMenu.setItem(6, createMenuItem(
+                            Material.PAPER,
+                            "Nosferatu",
+                            ChatColor.translateAlternateColorCodes('&', "&7- &fInformação da &f[&bClasse&f]."),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aDescrição:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Vampiros deformados pela sede de sangue."),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aStatus:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível atual: " + playerLevels.getOrDefault("Nosferatu", 0)),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível máximo: " + maxLevel),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aInferioridade:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Armadura"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Ferramentas"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &bDiamante, &8Netherite"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cVulneravel ao sol."),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aSuperioridade:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Cura-se ao atacar inimigos."),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Gera uma aura de escuridão que cega os inimigos próximos."),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aEconomia:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Custo: $ " + getClassCost(player, "Nosferatu"))
+                    ));
+                    classMenu.setItem(7, createMenuItem(
                             Material.PAPER,
                             "Druida",
                             ChatColor.translateAlternateColorCodes('&', "&7- &fInformação da &f[&bClasse&f]."),
@@ -663,7 +379,77 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
                             ChatColor.translateAlternateColorCodes('&', "&aEconomia:"),
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Custo: $ " + getClassCost(player, "Druida"))
                     ));
-                    classMenu.setItem(20, createMenuItem(
+                    classMenu.setItem(8, createMenuItem(
+                            Material.PAPER,
+                            "Necromancer",
+                            ChatColor.translateAlternateColorCodes('&', "&7- &fInformação da &f[&bClasse&f]."),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aDescrição:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Mestre da morte, controlando almas perdidas."),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aStatus:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível atual: " + playerLevels.getOrDefault("Necromancer", 0)),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível máximo: " + maxLevel),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aInferioridade:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Armadura"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Ferramentas"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &bDiamante, &8Netherite"),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aSuperioridade:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Revive esqueletos e zumbis para lutar ao seu lado dando sua vida em troca."),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aEconomia:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Custo: $ " + getClassCost(player, "Necromancer"))
+                    ));
+                    classMenu.setItem(9, createMenuItem(
+                            Material.PAPER,
+                            "AnaoMercador",
+                            ChatColor.translateAlternateColorCodes('&', "&7- &fInformação da &f[&bClasse&f]."),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aDescrição:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Comerciante astuto, com ouro nas mãos."),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aStatus:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível atual: " + playerLevels.getOrDefault("AnaoMercador", 0)),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível máximo: " + maxLevel),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aInferioridade:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &8Netherite"),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aSuperioridade:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Pode Crafitar todos os tipos de ferramentas"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Pode Crafitar todos os tipos de armaduras"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Recebe resistência ao dano de quedas e aumento de dano com picaretas."),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Possui 50% de sorte aumentada em trocas com villager"),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aEconomia:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Custo: $ " + getClassCost(player, "AnaoMercador"))
+                    ));
+                    classMenu.setItem(10, createMenuItem(
+                            Material.PAPER,
+                            "Albion",
+                            ChatColor.translateAlternateColorCodes('&', "&7- &fInformação da &f[&bClasse&f]."),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aDescrição:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Terras antigas, perdidas no tempo e magia."),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aStatus:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível atual: " + playerLevels.getOrDefault("Albion", 0)),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível máximo: " + maxLevel),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aInferioridade:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Armadura"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Ferramentas"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &bDiamante, &8Netherite"),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aSuperioridade:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Conjura uma tempestade de fogo que causa dano aos inimigos ao redor."),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aEconomia:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Custo: $ " + getClassCost(player, "Albion"))
+                    ));
+                    classMenu.setItem(11, createMenuItem(
                             Material.PAPER,
                             "Driade",
                             ChatColor.translateAlternateColorCodes('&', "&7- &fInformação da &f[&bClasse&f]."),
@@ -686,7 +472,80 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
                             ChatColor.translateAlternateColorCodes('&', "&aEconomia:"),
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Custo: $ " + getClassCost(player, "Driade"))
                     ));
-                    classMenu.setItem(21, createMenuItem(
+                    classMenu.setItem(12, createMenuItem(
+                            Material.PAPER,
+                            "MortoVivo",
+                            ChatColor.translateAlternateColorCodes('&', "&7- &fInformação da &f[&bClasse&f]."),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aDescrição:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Reanimados pela magia, sem alma ou paz."),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aStatus:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível atual: " + playerLevels.getOrDefault("MortoVivo", 0)),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível máximo: " + maxLevel),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aInferioridade:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Armadura"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Ferramentas"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &bDiamante, &8Netherite"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue usar porção de cura."),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aSuperioridade:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Drena vida dos inimigos próximos e os transforma em aliados mortos-vivos."),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aEconomia:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Custo: $ " + getClassCost(player, "MortoVivo"))
+                    ));
+                    classMenu.setItem(13, createMenuItem(
+                            Material.PAPER,
+                            "VampiroRei",
+                            ChatColor.translateAlternateColorCodes('&', "&7- &fInformação da &f[&bClasse&f]."),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aDescrição:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Caçadores noturnos, imortais e sedentos."),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aStatus:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível atual: " + playerLevels.getOrDefault("VampiroRei", 0)),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível máximo: " + maxLevel),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aInferioridade:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Armadura"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Ferramentas"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &bDiamante, &8Netherite"),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aSuperioridade:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Cura-se ao atacar inimigos."),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Gera uma aura de escuridão que cega os inimigos próximos."),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Invulneravel ao sol."),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aEconomia:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Custo: $ " + getClassCost(player, "VampiroRei"))
+                    ));
+                    classMenu.setItem(14, createMenuItem(
+                            Material.PAPER,
+                            "PrincipeInfernal",
+                            ChatColor.translateAlternateColorCodes('&', "&7- &fInformação da &f[&bClasse&f]."),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aDescrição:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Herdeiro do inferno, governante das sombras."),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aStatus:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível atual: " + playerLevels.getOrDefault("PrincipeInfernal", 0)),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível máximo: " + maxLevel),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aInferioridade:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Armadura"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Ferramentas"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &bDiamante, &8Netherite"),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aSuperioridade:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Conjura uma tempestade de fogo que causa dano aos inimigos ao redor."),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Invoca demônios para lutar ao lado do jogador."),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aEconomia:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Custo: $ " + getClassCost(player, "PrincipeInfernal"))
+                    ));
+                    classMenu.setItem(15, createMenuItem(
                             Material.PAPER,
                             "TuathaDeDanann",
                             ChatColor.translateAlternateColorCodes('&', "&7- &fInformação da &f[&bClasse&f]."),
@@ -709,7 +568,125 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
                             ChatColor.translateAlternateColorCodes('&', "&aEconomia:"),
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Custo: $ " + getClassCost(player, "TuathaDeDanann"))
                     ));
-                    classMenu.setItem(22, createMenuItem(
+                    classMenu.setItem(16, createMenuItem(
+                            Material.PAPER,
+                            "AnaoNobre",
+                            ChatColor.translateAlternateColorCodes('&', "&7- &fInformação da &f[&bClasse&f]."),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aDescrição:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nobre das montanhas, orgulhoso e honrado."),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aStatus:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível atual: " + playerLevels.getOrDefault("AnaoNobre", 0)),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível máximo: " + maxLevel),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aInferioridade:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &8Netherite"),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aSuperioridade:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Pode Crafitar todos os tipos de ferramentas"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Pode Crafitar todos os tipos de armaduras"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Recebe resistência ao dano de quedas e aumento de dano com picaretas."),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Possui 100% de sorte aumentada em trocas com villager"),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aEconomia:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Custo: $ " + getClassCost(player, "AnaoNobre"))
+                    ));
+                    classMenu.setItem(17, createMenuItem(
+                            Material.PAPER,
+                            "CavaleiroDaFome",
+                            ChatColor.translateAlternateColorCodes('&', "&7- &fInformação da &f[&bClasse&f]."),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aDescrição:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Guerreiro faminto, sem compaixão ou descanso."),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aStatus:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível atual: " + playerLevels.getOrDefault("CavaleiroDaFome", 0)),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível máximo: " + maxLevel),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aInferioridade:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Armadura"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Ferramentas"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &bDiamante, &8Netherite"),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aSuperioridade:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Dano aumentado quando a fome do jogador está baixa."),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Suga a fome total do inimigo"),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aEconomia:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Custo: $ " + getClassCost(player, "CavaleiroDaFome"))
+                    ));
+                    classMenu.setItem(18, createMenuItem(
+                            Material.PAPER,
+                            "CavaleiroDaPeste",
+                            ChatColor.translateAlternateColorCodes('&', "&7- &fInformação da &f[&bClasse&f]."),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aDescrição:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Portador de doenças, sem piedade ou cura."),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aStatus:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível atual: " + playerLevels.getOrDefault("CavaleiroDaPeste", 0)),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível máximo: " + maxLevel),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aInferioridade:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Armadura"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Ferramentas"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &bDiamante, &8Netherite"),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aSuperioridade:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Causa um efeito de veneno em área."),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aEconomia:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Custo: $ " + getClassCost(player, "CavaleiroDaPeste"))
+                    ));
+                    classMenu.setItem(19, createMenuItem(
+                            Material.PAPER,
+                            "CavaleiroDaGuerra",
+                            ChatColor.translateAlternateColorCodes('&', "&7- &fInformação da &f[&bClasse&f]."),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aDescrição:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Soldado eterno, forjado pelo conflito."),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aStatus:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível atual: " + playerLevels.getOrDefault("CavaleiroDaGuerra", 0)),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível máximo: " + maxLevel),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aInferioridade:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Armadura"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Ferramentas"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &bDiamante, &8Netherite"),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aSuperioridade:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Lança lanças que causam dano a múltiplos inimigos em linha reta."),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Possui o dano de combate e critico aumentado."),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aEconomia:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Custo: $ " + getClassCost(player, "CavaleiroDaGuerra"))
+                    ));
+                    classMenu.setItem(20, createMenuItem(
+                            Material.PAPER,
+                            "CavaleiroDaMorte",
+                            ChatColor.translateAlternateColorCodes('&', "&7- &fInformação da &f[&bClasse&f]."),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aDescrição:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Executor das almas, imbatível e sombrio."),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aStatus:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível atual: " + playerLevels.getOrDefault("CavaleiroDaMorte", 0)),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível máximo: " + maxLevel),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aInferioridade:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Armadura"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Ferramentas"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &bDiamante, &8Netherite"),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aSuperioridade:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Golpes causam dano extra e têm chance de matar instantaneamente."),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aEconomia:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Custo: $ " + getClassCost(player, "CavaleiroDaMorte"))
+                    ));
+                    classMenu.setItem(21, createMenuItem(
                             Material.PAPER,
                             "Poseidon",
                             ChatColor.translateAlternateColorCodes('&', "&7- &fInformação da &f[&bClasse&f]."),
@@ -733,7 +710,7 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
                             ChatColor.translateAlternateColorCodes('&', "&aEconomia:"),
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Custo: $ " + getClassCost(player, "Poseidon"))
                     ));
-                    classMenu.setItem(23, createMenuItem(
+                    classMenu.setItem(22, createMenuItem(
                             Material.PAPER,
                             "Ares",
                             ChatColor.translateAlternateColorCodes('&', "&7- &fInformação da &f[&bClasse&f]."),
@@ -757,6 +734,29 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aEconomia:"),
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Custo: $ " + getClassCost(player, "Ares"))
+                    ));
+                    classMenu.setItem(23, createMenuItem(
+                            Material.PAPER,
+                            "Overlord",
+                            ChatColor.translateAlternateColorCodes('&', "&7- &fInformação da &f[&bClasse&f]."),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aDescrição:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Feiticeiro milenar, governando o além."),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aStatus:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível atual: " + playerLevels.getOrDefault("Overlord", 0)),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível máximo: " + maxLevel),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aInferioridade:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Armadura"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Ferramentas"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &bDiamante, &8Netherite"),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aSuperioridade:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Lança um poder de Ar explosivo."),
+                            "",
+                            ChatColor.translateAlternateColorCodes('&', "&aEconomia:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Custo: $ " + getClassCost(player, "Overlord"))
                     ));
                     classMenu.setItem(24, createMenuItem(
                             Material.PAPER,
@@ -846,53 +846,53 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
             case "HumanoMercador": // 2
                 return "HumanoNobre";
             case "HumanoNobre": // 3
-                return "Lamia";
-            case "Lamia": // 4
-                return "Nosferatu";
-            case "Nosferatu": // 5
-                return "VampiroRei";
-            case "VampiroRei": // 6
+                return "Anao";
+            case "Anao": // 4
                 return "Demonio";
-            case "Demonio": // 7
-                return "Albion";
-            case "Albion": // 8
-                return "PrincipeInfernal";
-            case "PrincipeInfernal": // 9
+            case "Demonio": // 5
+                return "Lamia";
+            case "Lamia": // 6
+                return "Nosferatu";
+            case "Nosferatu": // 7
+                return "Druida";
+            case "Druida":// 8
                 return "Necromancer";
-            case "Necromancer": // 10
+            case "Necromancer": // 9
+                return "AnaoMercador";
+            case "AnaoMercador":// 10
+                return "Albion";
+            case "Albion": // 11
+                return "Driade";
+            case "Driade":// 12
                 return "MortoVivo";
-            case "MortoVivo": // 11
+            case "MortoVivo": // 13
+                return "VampiroRei";
+            case "VampiroRei": // 14
+                return "PrincipeInfernal";
+            case "PrincipeInfernal": // 15
+                return "TuathaDeDanann";
+            case "TuathaDeDanann":// 16
+                return "AnaoNobre";
+            case "AnaoNobre":// 17
+                return "CavaleiroDaFome";
+            case "CavaleiroDaFome":// 18
+                return "CavaleiroDaPeste";
+            case "CavaleiroDaPeste":// 19
+                return "CavaleiroDaGuerra";
+            case "CavaleiroDaGuerra":// 20
+                return "CavaleiroDaMorte";
+            case "CavaleiroDaMorte":// 21
+                return "Poseidon";
+            case "Poseidon":// 22
+                return "Ares";
+            case "Ares":// 23
                 return "Overlord";
             case "Overlord": // 12
-                return "CavaleiroDaFome";
-            case "CavaleiroDaFome":// 13
-                return "CavaleiroDaPeste";
-            case "CavaleiroDaPeste":// 14
-                return "CavaleiroDaGuerra";
-            case "CavaleiroDaGuerra":// 15
-                return "CavaleiroDaMorte";
-            case "CavaleiroDaMorte":// 16
-                return "Anao";
-            case "Anao":// 17
-                return "AnaoMercador";
-            case "AnaoMercador":// 18
-                return "AnaoNobre";
-            case "AnaoNobre":// 19
-                return "Druida";
-            case "Druida":// 20
-                return "Driade";
-            case "Driade":// 21
-                return "TuathaDeDanann";
-            case "TuathaDeDanann":// 22
-                return "Poseidon";
-            case "Poseidon":// 23
-                return "Ares";
-            case "Ares":// 24
                 return "Mago";
-            case "Mago":// 25
+            case "Mago":// 24
                 return "MagoRegente";
-            case "MagoRegente":// 26
-                return "ReiMago"; // 27
+            case "MagoRegente":// 25
+                return "ReiMago"; // 26
             default:
                 return currentClass;
         }
@@ -956,7 +956,7 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
                     } else {
                         player.sendMessage(ChatColor.RED + "Você não tem dinheiro suficiente para subir de nível.");
                     }
-                player.closeInventory();
+                // player.closeInventory();
             }
         }
     }
@@ -1055,7 +1055,7 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
         lore4.add("§a❙ §7Usado para trocas dentro da /warp loja");
         lore4.add("");
         lore4.add("§aEconomia:");
-        lore4.add("§a❙ §7$ 300.000,00");
+        lore4.add("§a❙ §7$ 500.000,00");
         lore4.add("");
         lore4.add("§a(!) Esse ITEM é §6raro §amais informações acesse nosso site!");
         meta4.setLore(lore4);

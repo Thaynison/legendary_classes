@@ -4,11 +4,14 @@ import org.bukkit.Material;
 
 public class blockCraft {
 
+
+    public static boolean itemHumanoBlock(Material material) {
+        return material == Material.SHULKER_BOX;
+    }
+
     public static boolean itensMinecraft(Material material) {
-        return material == Material.SHULKER_BOX ||
-                material == Material.END_CRYSTAL ||
+        return material == Material.END_CRYSTAL ||
                 material == Material.NETHERITE_UPGRADE_SMITHING_TEMPLATE ||
-                material == Material.BREWING_STAND ||
                 material == Material.CRAFTER ||
                 material == Material.DISPENSER ||
                 material == Material.DROPPER ||

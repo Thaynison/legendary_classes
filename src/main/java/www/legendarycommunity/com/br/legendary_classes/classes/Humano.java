@@ -58,7 +58,8 @@ public class Humano implements Listener {
         CraftingInventory inventory = event.getInventory();
         ItemStack result = inventory.getResult();
         if (result != null &&
-                (blockCraft.itensMinecraft(result.getType()) ||
+                (blockCraft.itemHumanoBlock(result.getType()) ||
+                        blockCraft.itensMinecraft(result.getType()) ||
                         blockCraft.isGold_Itens(result.getType()) ||
                         blockCraft.isDiamond_Itens(result.getType()) ||
                         blockCraft.isNetherite_Itens(result.getType()))) {
@@ -74,7 +75,8 @@ public class Humano implements Listener {
     public void onPrepareSmithing(PrepareSmithingEvent event) {
         ItemStack result = event.getResult();
         if (result != null &&
-                (blockCraft.itensMinecraft(result.getType()) ||
+                (blockCraft.itemHumanoBlock(result.getType()) ||
+                        blockCraft.itensMinecraft(result.getType()) ||
                         blockCraft.isGold_Itens(result.getType()) ||
                         blockCraft.isDiamond_Itens(result.getType()) ||
                         blockCraft.isNetherite_Itens(result.getType()))) {
