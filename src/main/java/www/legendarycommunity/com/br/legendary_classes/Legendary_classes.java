@@ -1233,11 +1233,25 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
         PlayerClassData data = playerDataCache.get(playerUUID);
         if (data != null) {
             String className = data.getClassName();
-            String classLevel = String.valueOf(data.getClassLevel());
+            int classLevel = data.getClassLevel();
+
+            // Definir a cor baseada no nível da classe
+            String color;
+            if (classLevel >= 1 && classLevel <= 10) {
+                color = "§7";
+            } else if (classLevel >= 11 && classLevel <= 40) {
+                color = "§6";
+            } else if (classLevel >= 41 && classLevel <= 60) {
+                color = "§b";
+            } else if (classLevel >= 61 && classLevel <= 100) {
+                color = "§d";
+            } else {
+                color = "§f"; // Cor padrão caso o nível esteja fora do intervalo
+            }
 
             // Formatar o nome da classe
             className = className.replaceAll("([A-Z])", " $1").trim();
-            String formattedClassName = " §f[§e" + classLevel + "§f] §f[§b" + className + "§f]";
+            String formattedClassName = " §f[§e" + classLevel + "§f] §f[" + color + className + "§f]";
 
             // Configurar o formato do chat
             String displayName = player.getDisplayName().replace("%", "%%");
@@ -1247,6 +1261,7 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
             getLogger().severe("Dados de classe não encontrados no cache para o jogador " + player.getName());
         }
     }
+
 
 
 
