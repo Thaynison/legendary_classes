@@ -21,30 +21,7 @@ import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 import net.milkbowl.vault.economy.Economy;
 
-import www.legendarycommunity.com.br.legendary_classes.classes.Humano;
-import www.legendarycommunity.com.br.legendary_classes.classes.HumanoMercador;
-import www.legendarycommunity.com.br.legendary_classes.classes.HumanoNobre;
-import www.legendarycommunity.com.br.legendary_classes.classes.Lamia;
-import www.legendarycommunity.com.br.legendary_classes.classes.Nosferatu;
-import www.legendarycommunity.com.br.legendary_classes.classes.VampiroRei;
-import www.legendarycommunity.com.br.legendary_classes.classes.Demonio;
-import www.legendarycommunity.com.br.legendary_classes.classes.Albion;
-import www.legendarycommunity.com.br.legendary_classes.classes.PrincipeInfernal;
-import www.legendarycommunity.com.br.legendary_classes.classes.Necromancer;
-import www.legendarycommunity.com.br.legendary_classes.classes.MortoVivo;
-import www.legendarycommunity.com.br.legendary_classes.classes.Overlord;
-import www.legendarycommunity.com.br.legendary_classes.classes.CavaleiroDaFome;
-import www.legendarycommunity.com.br.legendary_classes.classes.CavaleiroDaPeste;
-import www.legendarycommunity.com.br.legendary_classes.classes.CavaleiroDaGuerra;
-import www.legendarycommunity.com.br.legendary_classes.classes.CavaleiroDaMorte;
-import www.legendarycommunity.com.br.legendary_classes.classes.Anao;
-import www.legendarycommunity.com.br.legendary_classes.classes.AnaoMercador;
-import www.legendarycommunity.com.br.legendary_classes.classes.AnaoNobre;
-import www.legendarycommunity.com.br.legendary_classes.classes.Druida;
-import www.legendarycommunity.com.br.legendary_classes.classes.Driade;
-import www.legendarycommunity.com.br.legendary_classes.classes.TuathaDeDanann;
-import www.legendarycommunity.com.br.legendary_classes.classes.Poseidon;
-import www.legendarycommunity.com.br.legendary_classes.classes.Ares;
+import www.legendarycommunity.com.br.legendary_classes.classes.*;
 import www.legendarycommunity.com.br.legendary_classes.sistemas.upleve;
 
 import java.sql.Connection;
@@ -105,6 +82,17 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
         getServer().getPluginManager().registerEvents(new TuathaDeDanann(this), this);
         getServer().getPluginManager().registerEvents(new Poseidon(this), this);
         getServer().getPluginManager().registerEvents(new Ares(this), this);
+
+        getServer().getPluginManager().registerEvents(new AinzOoalGown(this), this);
+        getServer().getPluginManager().registerEvents(new Albedo(this), this);
+        getServer().getPluginManager().registerEvents(new Demiurgo(this), this);
+
+        getServer().getPluginManager().registerEvents(new ReiDemonio(this), this);
+        getServer().getPluginManager().registerEvents(new SupremaDivindade(this), this);
+        getServer().getPluginManager().registerEvents(new CaosDivindade(this), this);
+
+        getServer().getPluginManager().registerEvents(new Mereoleona(this), this);
+        getServer().getPluginManager().registerEvents(new Lemiel(this), this);
 
     }
 
@@ -1238,13 +1226,15 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
             // Definir a cor baseada no nível da classe
             String color;
             if (classLevel >= 1 && classLevel <= 10) {
-                color = "§7";
-            } else if (classLevel >= 11 && classLevel <= 40) {
+                color = "§8";
+            } else if (classLevel >= 11 && classLevel <= 30) {
                 color = "§6";
-            } else if (classLevel >= 41 && classLevel <= 60) {
-                color = "§b";
+            } else if (classLevel >= 31 && classLevel <= 60) {
+                color = "§5";
             } else if (classLevel >= 61 && classLevel <= 100) {
                 color = "§d";
+            } else if (classLevel >= 101 && classLevel <= 999) {
+                color = "§b";
             } else {
                 color = "§f"; // Cor padrão caso o nível esteja fora do intervalo
             }

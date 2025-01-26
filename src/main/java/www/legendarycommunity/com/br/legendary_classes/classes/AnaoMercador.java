@@ -52,7 +52,7 @@ public class AnaoMercador implements Listener {
 
     public void applyPowers(Player player) {
         player.getActivePotionEffects().forEach(effect -> player.removePotionEffect(effect.getType()));
-        player.addPotionEffect(new PotionEffect(PotionEffectType.RESISTANCE, Integer.MAX_VALUE, 5, true, false));
+        player.addPotionEffect(new PotionEffect(PotionEffectType.RESISTANCE, Integer.MAX_VALUE, 2, true, false));
         player.addPotionEffect(new PotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE, Integer.MAX_VALUE, 50, true, false));
     }
 

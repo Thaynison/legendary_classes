@@ -53,7 +53,7 @@ public class AnaoNobre implements Listener {
 
     public void applyPowers(Player player) {
         player.getActivePotionEffects().forEach(effect -> player.removePotionEffect(effect.getType()));
-        player.addPotionEffect(new PotionEffect(PotionEffectType.RESISTANCE, Integer.MAX_VALUE, 10, true, false));
+        player.addPotionEffect(new PotionEffect(PotionEffectType.RESISTANCE, Integer.MAX_VALUE, 3, true, false));
         player.addPotionEffect(new PotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE, Integer.MAX_VALUE, 100, true, false));
     }
 

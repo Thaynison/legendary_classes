@@ -29,11 +29,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 public class Necromancer implements Listener {
 
     private final Map<Integer, Integer> levels;
     private final Legendary_classes plugin;
+    private final HashMap<UUID, Long> cooldowns = new HashMap<>(); // Mapa para armazenar o tempo do último uso
 
     public Necromancer(Legendary_classes plugin) {
         this.levels = new HashMap<>();
@@ -152,6 +154,24 @@ public class Necromancer implements Listener {
             }
             AuraSkillsApi auraSkills = AuraSkillsApi.get();
             if (IsNecromancer(player)) {
+
+                // Verificar cooldown
+                long currentTime = System.currentTimeMillis();
+                UUID playerId = player.getUniqueId();
+
+                if (cooldowns.containsKey(playerId)) {
+                    long lastUseTime = cooldowns.get(playerId);
+                    long timeElapsed = (currentTime - lastUseTime) / 1000; // Converter para segundos
+
+                    if (timeElapsed < 30) {
+                        player.sendMessage("§cVocê precisa esperar " + (30 - timeElapsed) + " segundos para usar isso novamente!");
+                        return;
+                    }
+                }
+
+                // Registrar o tempo atual para o cooldown
+                cooldowns.put(playerId, currentTime);
+
                 SkillsUser skillsUser = auraSkills.getUser(player.getUniqueId());
                 if (skillsUser == null) {
                     return;
