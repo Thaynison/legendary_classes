@@ -174,6 +174,21 @@ public class Druida implements Listener {
 
                             // Verifica se o bloco é um tipo de planta que pode crescer
                             if (block.getType() == Material.WHEAT ||
+                                    block.getType() == Material.OAK_SAPLING ||
+                                    block.getType() == Material.SPRUCE_SAPLING ||
+                                    block.getType() == Material.BIRCH_SAPLING ||
+                                    block.getType() == Material.JUNGLE_SAPLING ||
+                                    block.getType() == Material.ACACIA_SAPLING ||
+                                    block.getType() == Material.DARK_OAK_SAPLING ||
+                                    block.getType() == Material.CHERRY_SAPLING ||
+                                    block.getType() == Material.MANGROVE_PROPAGULE ||
+                                    block.getType() == Material.SWEET_BERRIES ||
+                                    block.getType() == Material.BAMBOO ||
+                                    block.getType() == Material.SUGAR_CANE ||
+                                    block.getType() == Material.NETHER_WART ||
+                                    block.getType() == Material.MELON_SEEDS ||
+                                    block.getType() == Material.PUMPKIN_SEEDS ||
+                                    block.getType() == Material.WHEAT_SEEDS ||
                                     block.getType() == Material.CARROTS ||
                                     block.getType() == Material.POTATOES ||
                                     block.getType() == Material.BEETROOTS) {

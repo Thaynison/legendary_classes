@@ -7,6 +7,7 @@ www\legendarycommunity\com\br\legendary_classes\Legendary_classes.class
 www\legendarycommunity\com\br\legendary_classes\classes\Nosferatu.class
 www\legendarycommunity\com\br\legendary_classes\classes\SupremaDivindade.class
 www\legendarycommunity\com\br\legendary_classes\sistemas\blockCraft.class
+www\legendarycommunity\com\br\legendary_classes\classes\HeMan.class
 www\legendarycommunity\com\br\legendary_classes\classes\MagoRegente.class
 www\legendarycommunity\com\br\legendary_classes\classes\Mago.class
 www\legendarycommunity\com\br\legendary_classes\classes\HumanoNobre.class
@@ -28,6 +29,7 @@ www\legendarycommunity\com\br\legendary_classes\classes\ReiMago.class
 www\legendarycommunity\com\br\legendary_classes\classes\Demiurgo.class
 www\legendarycommunity\com\br\legendary_classes\classes\CavaleiroDaFome.class
 www\legendarycommunity\com\br\legendary_classes\classes\ReiDemonio.class
+www\legendarycommunity\com\br\legendary_classes\classes\DorothyUnsworth.class
 www\legendarycommunity\com\br\legendary_classes\classes\MortoVivo.class
 www\legendarycommunity\com\br\legendary_classes\classes\Demonio.class
 www\legendarycommunity\com\br\legendary_classes\sistemas\upleve$ClassData.class

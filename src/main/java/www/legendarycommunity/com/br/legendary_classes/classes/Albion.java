@@ -12,6 +12,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.enchantment.PrepareItemEnchantEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.inventory.*;
@@ -84,7 +85,7 @@ public class Albion implements Listener {
             }
         }
     }
-
+    
     // PROÍBE O JOGADOR DE USAR ARMADURA VIA INVENTÁRIO
     @EventHandler
     public void onInventoryClick(InventoryClickEvent event) {

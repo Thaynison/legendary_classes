@@ -26,7 +26,7 @@ public class upleve {
         // Configura os requisitos por nível para a classe "Humano"
         Map<Integer, ClassData> humanoRequirements = new HashMap<>();
         for (int level = 1; level <= 100; level++) {
-            int cost = 5000 * level;
+            int cost = 10000 * level;
 
             humanoRequirements.put(level, new ClassData(cost));
         }
@@ -35,7 +35,7 @@ public class upleve {
         // Configura os requisitos por nível para a classe "HumanoMercador"
         Map<Integer, ClassData> humanoMercadorRequirements = new HashMap<>();
         for (int level = 1; level <= 100; level++) {
-            int cost = 10000 * level;
+            int cost = 15000 * level;
 
             humanoMercadorRequirements.put(level, new ClassData(cost));
         }
@@ -44,16 +44,34 @@ public class upleve {
         // Configura os requisitos por nível para a classe "HumanoNobre"
         Map<Integer, ClassData> humanoNobreRequirements = new HashMap<>();
         for (int level = 1; level <= 100; level++) {
-            int cost = 15000 * level;
+            int cost = 40000 * level;
 
             humanoNobreRequirements.put(level, new ClassData(cost));
         }
         classRequirements.put("HumanoNobre", humanoNobreRequirements);
 
         // Configura os requisitos por nível para a classe "HumanoNobre"
+        Map<Integer, ClassData> anaoRequirements = new HashMap<>();
+        for (int level = 1; level <= 100; level++) {
+            int cost = 450000 * level;
+
+            anaoRequirements.put(level, new ClassData(cost));
+        }
+        classRequirements.put("Anao", anaoRequirements);
+
+        // Configura os requisitos por nível para a classe "HumanoNobre"
+        Map<Integer, ClassData> demonioRequirements = new HashMap<>();
+        for (int level = 1; level <= 100; level++) {
+            int cost = 650000 * level;
+
+            demonioRequirements.put(level, new ClassData(cost));
+        }
+        classRequirements.put("Demonio", demonioRequirements);
+
+        // Configura os requisitos por nível para a classe "HumanoNobre"
         Map<Integer, ClassData> lamiaRequirements = new HashMap<>();
         for (int level = 1; level <= 100; level++) {
-            int cost = 40000 * level;
+            int cost = 750000 * level;
 
             lamiaRequirements.put(level, new ClassData(cost));
         }
@@ -62,79 +80,107 @@ public class upleve {
         // Configura os requisitos por nível para a classe "HumanoNobre"
         Map<Integer, ClassData> nosferatuRequirements = new HashMap<>();
         for (int level = 1; level <= 100; level++) {
-            int cost = 45000 * level;
+            int cost = 850000 * level;
 
             nosferatuRequirements.put(level, new ClassData(cost));
         }
         classRequirements.put("Nosferatu", nosferatuRequirements);
 
         // Configura os requisitos por nível para a classe "HumanoNobre"
-        Map<Integer, ClassData> vampiroReiRequirements = new HashMap<>();
+        Map<Integer, ClassData> druidaRequirements = new HashMap<>();
         for (int level = 1; level <= 100; level++) {
-            int cost = 50000 * level;
+            int cost = 1250000 * level;
 
-            vampiroReiRequirements.put(level, new ClassData(cost));
+            druidaRequirements.put(level, new ClassData(cost));
         }
-        classRequirements.put("VampiroRei", vampiroReiRequirements);
-
-        // Configura os requisitos por nível para a classe "HumanoNobre"
-        Map<Integer, ClassData> demonioRequirements = new HashMap<>();
-        for (int level = 1; level <= 100; level++) {
-             int cost = 55000 * level;
-
-            demonioRequirements.put(level, new ClassData(cost));
-        }
-        classRequirements.put("Demonio", demonioRequirements);
-
-        // Configura os requisitos por nível para a classe "HumanoNobre"
-        Map<Integer, ClassData> albionRequirements = new HashMap<>();
-        for (int level = 1; level <= 100; level++) {
-            int cost = 60000 * level;
-
-            albionRequirements.put(level, new ClassData(cost));
-        }
-        classRequirements.put("Albion", albionRequirements);
-
-        // Configura os requisitos por nível para a classe "HumanoNobre"
-        Map<Integer, ClassData> principeInfernalRequirements = new HashMap<>();
-        for (int level = 1; level <= 100; level++) {
-            int cost = 65000 * level;
-
-            principeInfernalRequirements.put(level, new ClassData(cost));
-        }
-        classRequirements.put("PrincipeInfernal", principeInfernalRequirements);
+        classRequirements.put("Druida", druidaRequirements);
 
         // Configura os requisitos por nível para a classe "HumanoNobre"
         Map<Integer, ClassData> necromancerRequirements = new HashMap<>();
         for (int level = 1; level <= 100; level++) {
-            int cost = 70000 * level;
+            int cost = 1520000 * level;
 
             necromancerRequirements.put(level, new ClassData(cost));
         }
         classRequirements.put("Necromancer", necromancerRequirements);
 
         // Configura os requisitos por nível para a classe "HumanoNobre"
+        Map<Integer, ClassData> anaoMercadorRequirements = new HashMap<>();
+        for (int level = 1; level <= 100; level++) {
+            int cost = 2800000 * level;
+
+            anaoMercadorRequirements.put(level, new ClassData(cost));
+        }
+        classRequirements.put("AnaoMercador", anaoMercadorRequirements);
+
+        // Configura os requisitos por nível para a classe "HumanoNobre"
+        Map<Integer, ClassData> albionRequirements = new HashMap<>();
+        for (int level = 1; level <= 100; level++) {
+            int cost = 5863000 * level;
+
+            albionRequirements.put(level, new ClassData(cost));
+        }
+        classRequirements.put("Albion", albionRequirements);
+
+        // Configura os requisitos por nível para a classe "HumanoNobre"
+        Map<Integer, ClassData> driadeRequirements = new HashMap<>();
+        for (int level = 1; level <= 100; level++) {
+            int cost = 8585000 * level;
+
+            driadeRequirements.put(level, new ClassData(cost));
+        }
+        classRequirements.put("Driade", driadeRequirements);
+
+        // Configura os requisitos por nível para a classe "HumanoNobre"
         Map<Integer, ClassData> mortoVivoRequirements = new HashMap<>();
         for (int level = 1; level <= 100; level++) {
-            int cost = 75000 * level;
+            int cost = 15875000 * level;
 
             mortoVivoRequirements.put(level, new ClassData(cost));
         }
         classRequirements.put("MortoVivo", mortoVivoRequirements);
 
         // Configura os requisitos por nível para a classe "HumanoNobre"
-        Map<Integer, ClassData> overlordRequirements = new HashMap<>();
+        Map<Integer, ClassData> vampiroReiRequirements = new HashMap<>();
         for (int level = 1; level <= 100; level++) {
-            int cost = 80000 * level;
+            int cost = 25000000 * level;
 
-            overlordRequirements.put(level, new ClassData(cost));
+            vampiroReiRequirements.put(level, new ClassData(cost));
         }
-        classRequirements.put("Overlord", overlordRequirements);
+        classRequirements.put("VampiroRei", vampiroReiRequirements);
+
+        // Configura os requisitos por nível para a classe "HumanoNobre"
+        Map<Integer, ClassData> principeInfernalRequirements = new HashMap<>();
+        for (int level = 1; level <= 100; level++) {
+            int cost = 59100000 * level;
+
+            principeInfernalRequirements.put(level, new ClassData(cost));
+        }
+        classRequirements.put("PrincipeInfernal", principeInfernalRequirements);
+
+        // Configura os requisitos por nível para a classe "HumanoNobre"
+        Map<Integer, ClassData> tuathaDeDanannRequirements = new HashMap<>();
+        for (int level = 1; level <= 100; level++) {
+            int cost = 78540000 * level;
+
+            tuathaDeDanannRequirements.put(level, new ClassData(cost));
+        }
+        classRequirements.put("TuathaDeDanann", tuathaDeDanannRequirements);
+
+        // Configura os requisitos por nível para a classe "HumanoNobre"
+        Map<Integer, ClassData> anaoNobreRequirements = new HashMap<>();
+        for (int level = 1; level <= 100; level++) {
+            int cost = 255300000 * level;
+
+            anaoNobreRequirements.put(level, new ClassData(cost));
+        }
+        classRequirements.put("AnaoNobre", anaoNobreRequirements);
+
 
         // Configura os requisitos por nível para a classe "HumanoNobre"
         Map<Integer, ClassData> cavaleiroDaFomeRequirements = new HashMap<>();
         for (int level = 1; level <= 100; level++) {
-            int cost = 85000 * level;
+            int cost = 580000000 * level;
 
             cavaleiroDaFomeRequirements.put(level, new ClassData(cost));
         }
@@ -143,7 +189,7 @@ public class upleve {
         // Configura os requisitos por nível para a classe "HumanoNobre"
         Map<Integer, ClassData> cavaleiroDaPesteRequirements = new HashMap<>();
         for (int level = 1; level <= 100; level++) {
-            int cost = 90000 * level;
+            int cost = 640000000 * level;
 
             cavaleiroDaPesteRequirements.put(level, new ClassData(cost));
         }
@@ -152,7 +198,7 @@ public class upleve {
         // Configura os requisitos por nível para a classe "HumanoNobre"
         Map<Integer, ClassData> cavaleiroDaGuerraRequirements = new HashMap<>();
         for (int level = 1; level <= 100; level++) {
-            int cost = 100000 * level;
+            int cost = 740000000 * level;
 
             cavaleiroDaGuerraRequirements.put(level, new ClassData(cost));
         }
@@ -161,70 +207,16 @@ public class upleve {
         // Configura os requisitos por nível para a classe "HumanoNobre"
         Map<Integer, ClassData> cavaleiroDaMorteRequirements = new HashMap<>();
         for (int level = 1; level <= 100; level++) {
-             int cost = 200000 * level;
+             int cost = 980000000 * level;
 
             cavaleiroDaMorteRequirements.put(level, new ClassData(cost));
         }
         classRequirements.put("CavaleiroDaMorte", cavaleiroDaMorteRequirements);
 
         // Configura os requisitos por nível para a classe "HumanoNobre"
-        Map<Integer, ClassData> anaoRequirements = new HashMap<>();
-        for (int level = 1; level <= 100; level++) {
-            int cost = 300000 * level;
-
-            anaoRequirements.put(level, new ClassData(cost));
-        }
-        classRequirements.put("Anao", anaoRequirements);
-
-        // Configura os requisitos por nível para a classe "HumanoNobre"
-        Map<Integer, ClassData> anaoMercadorRequirements = new HashMap<>();
-        for (int level = 1; level <= 100; level++) {
-            int cost = 350000 * level;
-
-            anaoMercadorRequirements.put(level, new ClassData(cost));
-        }
-        classRequirements.put("AnaoMercador", anaoMercadorRequirements);
-
-        // Configura os requisitos por nível para a classe "HumanoNobre"
-        Map<Integer, ClassData> anaoNobreRequirements = new HashMap<>();
-        for (int level = 1; level <= 100; level++) {
-            int cost = 400000 * level;
-
-            anaoNobreRequirements.put(level, new ClassData(cost));
-        }
-        classRequirements.put("AnaoNobre", anaoNobreRequirements);
-
-        // Configura os requisitos por nível para a classe "HumanoNobre"
-        Map<Integer, ClassData> druidaRequirements = new HashMap<>();
-        for (int level = 1; level <= 100; level++) {
-            int cost = 450000 * level;
-
-            druidaRequirements.put(level, new ClassData(cost));
-        }
-        classRequirements.put("Druida", druidaRequirements);
-
-        // Configura os requisitos por nível para a classe "HumanoNobre"
-        Map<Integer, ClassData> driadeRequirements = new HashMap<>();
-        for (int level = 1; level <= 100; level++) {
-            int cost = 500000 * level;
-
-            driadeRequirements.put(level, new ClassData(cost));
-        }
-        classRequirements.put("Driade", driadeRequirements);
-
-        // Configura os requisitos por nível para a classe "HumanoNobre"
-        Map<Integer, ClassData> tuathaDeDanannRequirements = new HashMap<>();
-        for (int level = 1; level <= 100; level++) {
-            int cost = 550000 * level;
-
-            tuathaDeDanannRequirements.put(level, new ClassData(cost));
-        }
-        classRequirements.put("TuathaDeDanann", tuathaDeDanannRequirements);
-
-        // Configura os requisitos por nível para a classe "HumanoNobre"
         Map<Integer, ClassData> poseidonRequirements = new HashMap<>();
         for (int level = 1; level <= 100; level++) {
-            int cost = 600000 * level;
+            int cost = 995000000 * level;
 
             poseidonRequirements.put(level, new ClassData(cost));
         }
@@ -233,16 +225,25 @@ public class upleve {
         // Configura os requisitos por nível para a classe "HumanoNobre"
         Map<Integer, ClassData> aresRequirements = new HashMap<>();
         for (int level = 1; level <= 100; level++) {
-            int cost = 700000 * level;
+            int cost = 105000000 * level;
 
             aresRequirements.put(level, new ClassData(cost));
         }
         classRequirements.put("Ares", aresRequirements);
 
+        // Configura os requisitos por nível para a classe "HumanoNobre"
+        Map<Integer, ClassData> overlordRequirements = new HashMap<>();
+        for (int level = 1; level <= 100; level++) {
+            int cost = 110000000 * level;
+
+            overlordRequirements.put(level, new ClassData(cost));
+        }
+        classRequirements.put("Overlord", overlordRequirements);
+
         // Configura os requisitos por nível para a classe "Mago"
         Map<Integer, ClassData> magoRequirements = new HashMap<>();
         for (int level = 1; level <= 100; level++) {
-            int cost = 800000 * level;
+            int cost = 115000000 * level;
 
             magoRequirements.put(level, new ClassData(cost));
         }
@@ -251,7 +252,7 @@ public class upleve {
         // Configura os requisitos por nível para a classe "MagoRegente"
         Map<Integer, ClassData> magoRegenteRequirements = new HashMap<>();
         for (int level = 1; level <= 100; level++) {
-            int cost = 900000 * level;
+            int cost = 120000000 * level;
 
             magoRegenteRequirements.put(level, new ClassData(cost));
         }
@@ -260,7 +261,7 @@ public class upleve {
         // Configura os requisitos por nível para a classe "MagoRegente"
         Map<Integer, ClassData> ReiMagoRequirements = new HashMap<>();
         for (int level = 1; level <= 100; level++) {
-            int cost = 1000000 * level;
+            int cost = 128000000 * level;
 
             ReiMagoRequirements.put(level, new ClassData(cost));
         }

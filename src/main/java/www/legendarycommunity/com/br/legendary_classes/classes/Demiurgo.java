@@ -120,48 +120,19 @@ public class Demiurgo implements Listener {
         skillsUser.removeStatModifier("Lemiel_System_TOUGHNESS");
         skillsUser.removeStatModifier("Lemiel_System_LUCK");
         skillsUser.removeStatModifier("Lemiel_System_SPEED");
+        skillsUser.removeStatModifier("DorothyUnsworth_System_WISDOM");
+        skillsUser.removeStatModifier("DorothyUnsworth_System_HEALTH");
+        skillsUser.removeStatModifier("DorothyUnsworth_System_STRENGTH");
+        skillsUser.removeStatModifier("DorothyUnsworth_System_TOUGHNESS");
+        skillsUser.removeStatModifier("DorothyUnsworth_System_LUCK");
+        skillsUser.removeStatModifier("DorothyUnsworth_System_SPEED");
 
-        skillsUser.addStatModifier(new StatModifier("Demiurgo_System_WISDOM", Stats.WISDOM, 70000.0));
-        skillsUser.addStatModifier(new StatModifier("Demiurgo_System_HEALTH", Stats.HEALTH, 70000.0));
-        skillsUser.addStatModifier(new StatModifier("Demiurgo_System_STRENGTH", Stats.STRENGTH, 70000.0));
-        skillsUser.addStatModifier(new StatModifier("Demiurgo_System_TOUGHNESS", Stats.TOUGHNESS, 70000.0));
+        skillsUser.addStatModifier(new StatModifier("Demiurgo_System_WISDOM", Stats.WISDOM, 4096.0));
+        skillsUser.addStatModifier(new StatModifier("Demiurgo_System_HEALTH", Stats.HEALTH, 4096.0));
+        skillsUser.addStatModifier(new StatModifier("Demiurgo_System_STRENGTH", Stats.STRENGTH, 4096.0));
+        skillsUser.addStatModifier(new StatModifier("Demiurgo_System_TOUGHNESS", Stats.TOUGHNESS, 4096.0));
         skillsUser.addStatModifier(new StatModifier("Demiurgo_System_LUCK", Stats.LUCK, 20.0));
         skillsUser.addStatModifier(new StatModifier("Demiurgo_System_SPEED", Stats.SPEED, 20.0));
-    }
-
-    // DESATIVAR SISTEMA DE CRAFT DE ITEM!
-    @EventHandler
-    public void onPrepareCraft(PrepareItemCraftEvent event) {
-        CraftingInventory inventory = event.getInventory();
-        ItemStack result = inventory.getResult();
-        if (result != null &&
-                (blockCraft.itensMinecraft(result.getType()) ||
-                        blockCraft.isIron_Itens(result.getType()) ||
-                        blockCraft.isGold_Itens(result.getType()) ||
-                        blockCraft.isDiamond_Itens(result.getType()) ||
-                        blockCraft.isNetherite_Itens(result.getType()))) {
-            Player player = (Player) event.getView().getPlayer();
-            if (IsDemiurgo(player)) {
-                inventory.setResult(null);
-            }
-        }
-    }
-
-    // DESATIVAR SISTEMA DE CRAFT DE ITEM!
-    @EventHandler
-    public void onPrepareSmithing(PrepareSmithingEvent event) {
-        ItemStack result = event.getResult();
-        if (result != null &&
-                (blockCraft.itensMinecraft(result.getType()) ||
-                        blockCraft.isIron_Itens(result.getType()) ||
-                        blockCraft.isGold_Itens(result.getType()) ||
-                        blockCraft.isDiamond_Itens(result.getType()) ||
-                        blockCraft.isNetherite_Itens(result.getType()))) {
-            Player player = (Player) event.getView().getPlayer();
-            if (IsDemiurgo(player)) {
-                event.setResult(null);
-            }
-        }
     }
 
     @EventHandler
@@ -197,8 +168,8 @@ public class Demiurgo implements Listener {
                     return;
                 }
                 double manaAtual = skillsUser.getMana();
-                if (manaAtual >= 1000) {
-                    skillsUser.setMana(manaAtual - 1000);
+                if (manaAtual >= 500) {
+                    skillsUser.setMana(manaAtual - 500);
                     event.setCancelled(true);
                     World world = player.getWorld();
                     Location location = player.getLocation().add(2, 0, 2);
@@ -252,7 +223,7 @@ public class Demiurgo implements Listener {
         Player player = event.getPlayer();
         if (IsDemiurgo(player)) {
             int level = getPlayerLevel(player);
-            int xpToGive = 6 * getXpForLevel(level);
+            int xpToGive = 55 * getXpForLevel(level);
             if (xpToGive > 0) {
                 player.giveExp(xpToGive);
             }
@@ -264,7 +235,7 @@ public class Demiurgo implements Listener {
         Player killer = event.getEntity().getKiller();
         if (killer != null && IsDemiurgo(killer)) {
             int level = getPlayerLevel(killer);
-            int xpToGive = 6 * getXpForLevel(level);
+            int xpToGive = 55 * getXpForLevel(level);
             if (xpToGive > 0) {
                 killer.giveExp(xpToGive);
             }

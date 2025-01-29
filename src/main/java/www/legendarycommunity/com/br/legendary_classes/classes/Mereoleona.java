@@ -116,48 +116,19 @@ public class Mereoleona implements Listener {
         skillsUser.removeStatModifier("Lemiel_System_TOUGHNESS");
         skillsUser.removeStatModifier("Lemiel_System_LUCK");
         skillsUser.removeStatModifier("Lemiel_System_SPEED");
+        skillsUser.removeStatModifier("DorothyUnsworth_System_WISDOM");
+        skillsUser.removeStatModifier("DorothyUnsworth_System_HEALTH");
+        skillsUser.removeStatModifier("DorothyUnsworth_System_STRENGTH");
+        skillsUser.removeStatModifier("DorothyUnsworth_System_TOUGHNESS");
+        skillsUser.removeStatModifier("DorothyUnsworth_System_LUCK");
+        skillsUser.removeStatModifier("DorothyUnsworth_System_SPEED");
 
-        skillsUser.addStatModifier(new StatModifier("Mereoleona_System_WISDOM", Stats.WISDOM, 60000.0));
-        skillsUser.addStatModifier(new StatModifier("Mereoleona_System_HEALTH", Stats.HEALTH, 60000.0));
-        skillsUser.addStatModifier(new StatModifier("Mereoleona_System_STRENGTH", Stats.STRENGTH, 60000.0));
-        skillsUser.addStatModifier(new StatModifier("Mereoleona_System_TOUGHNESS", Stats.TOUGHNESS, 60000.0));
+        skillsUser.addStatModifier(new StatModifier("Mereoleona_System_WISDOM", Stats.WISDOM, 4096.0));
+        skillsUser.addStatModifier(new StatModifier("Mereoleona_System_HEALTH", Stats.HEALTH, 4096.0));
+        skillsUser.addStatModifier(new StatModifier("Mereoleona_System_STRENGTH", Stats.STRENGTH, 4096.0));
+        skillsUser.addStatModifier(new StatModifier("Mereoleona_System_TOUGHNESS", Stats.TOUGHNESS, 4096.0));
         skillsUser.addStatModifier(new StatModifier("Mereoleona_System_LUCK", Stats.LUCK, 20.0));
         skillsUser.addStatModifier(new StatModifier("Mereoleona_System_SPEED", Stats.SPEED, 20.0));
-    }
-
-    // DESATIVAR SISTEMA DE CRAFT DE ITEM!
-    @EventHandler
-    public void onPrepareCraft(PrepareItemCraftEvent event) {
-        CraftingInventory inventory = event.getInventory();
-        ItemStack result = inventory.getResult();
-        if (result != null &&
-                (blockCraft.itensMinecraft(result.getType()) ||
-                        blockCraft.isIron_Itens(result.getType()) ||
-                        blockCraft.isGold_Itens(result.getType()) ||
-                        blockCraft.isDiamond_Itens(result.getType()) ||
-                        blockCraft.isNetherite_Itens(result.getType()))) {
-            Player player = (Player) event.getView().getPlayer();
-            if (IsMereoleona(player)) {
-                inventory.setResult(null);
-            }
-        }
-    }
-
-    // DESATIVAR SISTEMA DE CRAFT DE ITEM!
-    @EventHandler
-    public void onPrepareSmithing(PrepareSmithingEvent event) {
-        ItemStack result = event.getResult();
-        if (result != null &&
-                (blockCraft.itensMinecraft(result.getType()) ||
-                        blockCraft.isIron_Itens(result.getType()) ||
-                        blockCraft.isGold_Itens(result.getType()) ||
-                        blockCraft.isDiamond_Itens(result.getType()) ||
-                        blockCraft.isNetherite_Itens(result.getType()))) {
-            Player player = (Player) event.getView().getPlayer();
-            if (IsMereoleona(player)) {
-                event.setResult(null);
-            }
-        }
     }
 
     @EventHandler
@@ -260,9 +231,9 @@ public class Mereoleona implements Listener {
 
                     ItemMeta itemMeta = itemInHand.getItemMeta();
                     if (itemMeta != null) {
-                        String itemName = ChatColor.stripColor(itemMeta.getDisplayName());
 
-                        if (itemName.equals("Grimorio do Fogo")) {
+                        String itemName = ChatColor.stripColor(itemMeta.getDisplayName());
+                        if (itemName != null && itemName.equalsIgnoreCase("Grimorio do Fogo")) {
 
                             if (player.getAllowFlight()) {
                                 player.setAllowFlight(false);
@@ -274,15 +245,27 @@ public class Mereoleona implements Listener {
                 }
             }
         } else if (event.getAction() == Action.LEFT_CLICK_AIR || event.getAction() == Action.LEFT_CLICK_BLOCK) {
+            if (Bukkit.getPluginManager().getPlugin("AuraSkills") == null) {
+                return;
+            }
+            AuraSkillsApi auraSkills = AuraSkillsApi.get();
             if (IsMereoleona(player)) {
                 ItemStack itemInHand = player.getInventory().getItemInMainHand();
+                SkillsUser skillsUser = auraSkills.getUser(player.getUniqueId());
+                if (skillsUser == null) {
+                    return;
+                }
+                double manaAtual = skillsUser.getMana();
                 if (itemInHand != null && itemInHand.getType() == Material.BOOK) {
                     ItemMeta itemMeta = itemInHand.getItemMeta();
                     if (itemMeta != null) {
                         String itemName = ChatColor.stripColor(itemMeta.getDisplayName());
-                        if (itemName.equals("Grimorio do Fogo")) {
-                            // Aqui você lança o WindCharge
-                            launchFireball(player);
+                        if (itemName != null && itemName.equalsIgnoreCase("Grimorio do Fogo")) {
+                            if (manaAtual >= 500) {
+                                launchFireball(player);
+                                skillsUser.setMana(manaAtual - 500);
+                                event.setCancelled(true);
+                            }
                         }
                     }
                 }
@@ -325,7 +308,7 @@ public class Mereoleona implements Listener {
         Player player = event.getPlayer();
         if (IsMereoleona(player)) {
             int level = getPlayerLevel(player);
-            int xpToGive = 6 * getXpForLevel(level);
+            int xpToGive = 55 * getXpForLevel(level);
             if (xpToGive > 0) {
                 player.giveExp(xpToGive);
             }
@@ -337,7 +320,7 @@ public class Mereoleona implements Listener {
         Player killer = event.getEntity().getKiller();
         if (killer != null && IsMereoleona(killer)) {
             int level = getPlayerLevel(killer);
-            int xpToGive = 6 * getXpForLevel(level);
+            int xpToGive = 55 * getXpForLevel(level);
             if (xpToGive > 0) {
                 killer.giveExp(xpToGive);
             }

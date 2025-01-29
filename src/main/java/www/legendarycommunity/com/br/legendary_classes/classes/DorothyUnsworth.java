@@ -36,13 +36,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
-public class Lemiel implements Listener {
+public class DorothyUnsworth implements Listener {
 
     private final Map<Integer, Integer> levels;
     private final Legendary_classes plugin;
+    private final Map<UUID, Long> cooldowns = new HashMap<>();
 
-    public Lemiel(Legendary_classes plugin) {
+    public DorothyUnsworth(Legendary_classes plugin) {
         this.levels = new HashMap<>();
         this.plugin = plugin;
 
@@ -67,6 +69,12 @@ public class Lemiel implements Listener {
             return;
         }
 
+        skillsUser.removeStatModifier("DorothyUnsworth_System_WISDOM");
+        skillsUser.removeStatModifier("DorothyUnsworth_System_HEALTH");
+        skillsUser.removeStatModifier("DorothyUnsworth_System_STRENGTH");
+        skillsUser.removeStatModifier("DorothyUnsworth_System_TOUGHNESS");
+        skillsUser.removeStatModifier("DorothyUnsworth_System_LUCK");
+        skillsUser.removeStatModifier("DorothyUnsworth_System_SPEED");
         skillsUser.removeStatModifier("SupremaDivindade_System_WISDOM");
         skillsUser.removeStatModifier("SupremaDivindade_System_HEALTH");
         skillsUser.removeStatModifier("SupremaDivindade_System_STRENGTH");
@@ -109,31 +117,19 @@ public class Lemiel implements Listener {
         skillsUser.removeStatModifier("AinzOoalGown_System_TOUGHNESS");
         skillsUser.removeStatModifier("AinzOoalGown_System_LUCK");
         skillsUser.removeStatModifier("AinzOoalGown_System_SPEED");
-        skillsUser.removeStatModifier("Lemiel_System_WISDOM");
-        skillsUser.removeStatModifier("Lemiel_System_HEALTH");
-        skillsUser.removeStatModifier("Lemiel_System_STRENGTH");
-        skillsUser.removeStatModifier("Lemiel_System_TOUGHNESS");
-        skillsUser.removeStatModifier("Lemiel_System_LUCK");
-        skillsUser.removeStatModifier("Lemiel_System_SPEED");
-        skillsUser.removeStatModifier("DorothyUnsworth_System_WISDOM");
-        skillsUser.removeStatModifier("DorothyUnsworth_System_HEALTH");
-        skillsUser.removeStatModifier("DorothyUnsworth_System_STRENGTH");
-        skillsUser.removeStatModifier("DorothyUnsworth_System_TOUGHNESS");
-        skillsUser.removeStatModifier("DorothyUnsworth_System_LUCK");
-        skillsUser.removeStatModifier("DorothyUnsworth_System_SPEED");
 
-        skillsUser.addStatModifier(new StatModifier("Lemiel_System_WISDOM", Stats.WISDOM, 4096.0));
-        skillsUser.addStatModifier(new StatModifier("Lemiel_System_HEALTH", Stats.HEALTH, 4096.0));
-        skillsUser.addStatModifier(new StatModifier("Lemiel_System_STRENGTH", Stats.STRENGTH, 4096.0));
-        skillsUser.addStatModifier(new StatModifier("Lemiel_System_TOUGHNESS", Stats.TOUGHNESS, 4096.0));
-        skillsUser.addStatModifier(new StatModifier("Lemiel_System_LUCK", Stats.LUCK, 20.0));
-        skillsUser.addStatModifier(new StatModifier("Lemiel_System_SPEED", Stats.SPEED, 20.0));
+        skillsUser.addStatModifier(new StatModifier("DorothyUnsworth_System_WISDOM", Stats.WISDOM, 4096.0));
+        skillsUser.addStatModifier(new StatModifier("DorothyUnsworth_System_HEALTH", Stats.HEALTH, 4096.0));
+        skillsUser.addStatModifier(new StatModifier("DorothyUnsworth_System_STRENGTH", Stats.STRENGTH, 4096.0));
+        skillsUser.addStatModifier(new StatModifier("DorothyUnsworth_System_TOUGHNESS", Stats.TOUGHNESS, 4096.0));
+        skillsUser.addStatModifier(new StatModifier("DorothyUnsworth_System_LUCK", Stats.LUCK, 20.0));
+        skillsUser.addStatModifier(new StatModifier("DorothyUnsworth_System_SPEED", Stats.SPEED, 20.0));
     }
 
     @EventHandler
     public void onPlayerMoveApplyWeakness(PlayerMoveEvent event) {
         Player player = event.getPlayer();
-        if (IsLemiel(player)) {
+        if (IsDorothyUnsworth(player)) {
             World world = player.getWorld();
             SimpleClans simpleClans = (SimpleClans) Bukkit.getPluginManager().getPlugin("SimpleClans");
 
@@ -149,7 +145,7 @@ public class Lemiel implements Listener {
                             if (AresClanPlayer != null && nearbyClanPlayer != null &&
                                     AresClanPlayer.getClan() != null &&
                                     AresClanPlayer.getClan().equals(nearbyClanPlayer.getClan())) {
-                                nearbyPlayer.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 60, 10));
+                                nearbyPlayer.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 60, 10));
                             }
                         }
                     }
@@ -161,19 +157,18 @@ public class Lemiel implements Listener {
     @EventHandler
     public void onGrimorioInteract(PlayerInteractEvent event) {
         Player player = event.getPlayer();
+        UUID playerId = player.getUniqueId();
+        long currentTime = System.currentTimeMillis();
 
         if (event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK) {
-
-            if (IsLemiel(player)) {
-
+            if (IsDorothyUnsworth(player)) {
                 ItemStack itemInHand = player.getInventory().getItemInMainHand();
                 if (itemInHand != null && itemInHand.getType() == Material.BOOK) {
-
                     ItemMeta itemMeta = itemInHand.getItemMeta();
                     if (itemMeta != null) {
+                        // Remove cores e formatações do nome do item
                         String itemName = ChatColor.stripColor(itemMeta.getDisplayName());
-                        if (itemName != null && itemName.equalsIgnoreCase("Grimorio de Luz")) {
-
+                        if (itemName != null && itemName.equalsIgnoreCase("Grimorio do Sonho")) {
                             if (player.getAllowFlight()) {
                                 player.setAllowFlight(false);
                             } else {
@@ -188,23 +183,62 @@ public class Lemiel implements Listener {
                 return;
             }
             AuraSkillsApi auraSkills = AuraSkillsApi.get();
-            if (IsLemiel(player)) {
+
+            if (IsDorothyUnsworth(player)) {
                 ItemStack itemInHand = player.getInventory().getItemInMainHand();
                 SkillsUser skillsUser = auraSkills.getUser(player.getUniqueId());
                 if (skillsUser == null) {
                     return;
                 }
+
                 double manaAtual = skillsUser.getMana();
+
                 if (itemInHand != null && itemInHand.getType() == Material.BOOK) {
                     ItemMeta itemMeta = itemInHand.getItemMeta();
                     if (itemMeta != null) {
                         String itemName = ChatColor.stripColor(itemMeta.getDisplayName());
-                        if (itemName != null && itemName.equalsIgnoreCase("Grimorio de Luz")) {
-                            // Aqui você lança o WindCharge
-                            if (manaAtual >= 500) {
-                                launchWindCharge(player);
-                                skillsUser.setMana(manaAtual - 500);
-                                event.setCancelled(true);
+                        if (itemName != null && itemName.equalsIgnoreCase("Grimorio do Sonho")) {
+                            // Verificar cooldown
+                            if (cooldowns.containsKey(playerId)) {
+                                long lastUseTime = cooldowns.get(playerId);
+                                long timeElapsed = (currentTime - lastUseTime) / 1000; // Converter para segundos
+
+                                if (timeElapsed < 5) {
+                                    player.sendMessage("§cVocê precisa esperar " + (5 - timeElapsed) + " segundos para usar isso novamente!");
+                                    return;
+                                }
+                            }
+
+                            // Verificar se o jogador tem mana suficiente
+                            if (manaAtual >= 500) { // Mana necessária para ativar a habilidade
+                                // Registrar o tempo atual para o cooldown
+                                cooldowns.put(playerId, currentTime);
+
+                                // Pegar a entidade mais próxima do jogador
+                                Entity target = getTargetEntity(player, 5); // 5 é a distância máxima para selecionar a entidade
+                                if (target != null) {
+                                    // Adiciona um efeito de náusea
+                                    if (target instanceof LivingEntity livingTarget) {
+                                        livingTarget.addPotionEffect(new PotionEffect(PotionEffectType.NAUSEA, 600, 10)); // Duração: 30s, Nível: 10
+                                        livingTarget.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 600, 10)); // Duração: 30s, Nível: 10
+                                        livingTarget.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS, 600, 10)); // Duração: 30s, Nível: 10
+                                    }
+
+                                    // Trava a entidade
+                                    target.setVelocity(target.getVelocity().setX(0).setY(0).setZ(0));
+                                    target.setGravity(false);
+
+                                    // Após 30 segundos, liberar a entidade
+                                    Bukkit.getScheduler().runTaskLater(Legendary_classes.getInstance(), () -> {
+                                        target.setGravity(true);
+                                    }, 600L); // 600 ticks = 30 segundos
+
+                                    // Consumir a mana
+                                    skillsUser.setMana(manaAtual - 500);
+                                    event.setCancelled(true);
+                                }
+                            } else {
+                                player.sendMessage("§cVocê não tem mana suficiente para usar essa habilidade!");
                             }
                         }
                     }
@@ -213,44 +247,26 @@ public class Lemiel implements Listener {
         }
     }
 
-    private void launchWindCharge(Player player) {
-        WindCharge windCharge = player.getWorld().spawn(player.getEyeLocation(), WindCharge.class);
-        windCharge.setCustomName("Luz");
-        windCharge.setCustomNameVisible(false);
-        windCharge.setShooter(player);
-        Vector velocity = player.getEyeLocation().getDirection().multiply(1.5);
-        windCharge.setVelocity(velocity);
-        windCharge.setGravity(false);
-    }
+    private Entity getTargetEntity(Player player, double range) {
+        Location eyeLocation = player.getEyeLocation();
+        Vector direction = eyeLocation.getDirection();
+        World world = player.getWorld();
 
-    @EventHandler
-    public void onWindChargeHit(EntityDamageByEntityEvent event) {
-        if (event.getDamager() instanceof WindCharge) {
-            WindCharge windCharge = (WindCharge) event.getDamager();
-            if ("Luz".equals(windCharge.getCustomName()) && windCharge.getShooter() instanceof Player) {
-                event.setDamage(100000);
-                createMultipleExplosions(windCharge.getLocation(), 4, 2.0F);
+        for (double i = 0; i <= range; i += 0.5) {
+            Location checkLocation = eyeLocation.clone().add(direction.clone().multiply(i));
+            for (Entity entity : world.getNearbyEntities(checkLocation, 0.5, 0.5, 0.5)) {
+                if (entity != player) {
+                    return entity;
+                }
             }
         }
-    }
-
-    private void createMultipleExplosions(org.bukkit.Location location, int count, float power) {
-        World world = location.getWorld();
-        if (world != null) {
-            for (int i = 0; i < count; i++) {
-                double offsetX = (Math.random() - 0.5) * 2.0;
-                double offsetY = (Math.random() - 0.5) * 2.0;
-                double offsetZ = (Math.random() - 0.5) * 2.0;
-                org.bukkit.Location explosionLocation = location.clone().add(offsetX, offsetY, offsetZ);
-                world.createExplosion(explosionLocation, power, false, false);
-            }
-        }
+        return null;
     }
 
     @EventHandler
     public void onBlockBreak(BlockBreakEvent event) {
         Player player = event.getPlayer();
-        if (IsLemiel(player)) {
+        if (IsDorothyUnsworth(player)) {
             int level = getPlayerLevel(player);
             int xpToGive = 55 * getXpForLevel(level);
             if (xpToGive > 0) {
@@ -262,7 +278,7 @@ public class Lemiel implements Listener {
     @EventHandler
     public void onEntityKill(EntityDeathEvent event) {
         Player killer = event.getEntity().getKiller();
-        if (killer != null && IsLemiel(killer)) {
+        if (killer != null && IsDorothyUnsworth(killer)) {
             int level = getPlayerLevel(killer);
             int xpToGive = 55 * getXpForLevel(level);
             if (xpToGive > 0) {
@@ -271,9 +287,9 @@ public class Lemiel implements Listener {
         }
     }
 
-    public boolean IsLemiel(Player player) {
+    public boolean IsDorothyUnsworth(Player player) {
         PlayerClassData data = plugin.getPlayerData(player.getUniqueId());
-        return data != null && "Lemiel".equalsIgnoreCase(data.getClassName());
+        return data != null && "DorothyUnsworth".equalsIgnoreCase(data.getClassName());
     }
 
     public int getPlayerLevel(Player player) {

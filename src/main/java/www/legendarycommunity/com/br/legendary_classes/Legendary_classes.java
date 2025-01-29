@@ -35,12 +35,14 @@ import static net.sacredlabyrinth.phaed.simpleclans.chat.ChatHandler.plugin;
 
 public final class Legendary_classes extends JavaPlugin implements Listener {
 
+    private static Legendary_classes instance; // Instância estática
     private Connection connection;
     private Economy economy;
     private final HashMap<UUID, PlayerClassData> playerDataCache = new HashMap<>();
 
     @Override
     public void onEnable() {
+        instance = this;
         saveDefaultConfig();
         connectDatabase();
 
@@ -82,18 +84,20 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
         getServer().getPluginManager().registerEvents(new TuathaDeDanann(this), this);
         getServer().getPluginManager().registerEvents(new Poseidon(this), this);
         getServer().getPluginManager().registerEvents(new Ares(this), this);
-
         getServer().getPluginManager().registerEvents(new AinzOoalGown(this), this);
         getServer().getPluginManager().registerEvents(new Albedo(this), this);
         getServer().getPluginManager().registerEvents(new Demiurgo(this), this);
-
         getServer().getPluginManager().registerEvents(new ReiDemonio(this), this);
         getServer().getPluginManager().registerEvents(new SupremaDivindade(this), this);
         getServer().getPluginManager().registerEvents(new CaosDivindade(this), this);
-
-        getServer().getPluginManager().registerEvents(new Mereoleona(this), this);
         getServer().getPluginManager().registerEvents(new Lemiel(this), this);
+        getServer().getPluginManager().registerEvents(new Mereoleona(this), this);
+        getServer().getPluginManager().registerEvents(new DorothyUnsworth(this), this);
 
+    }
+
+    public static Legendary_classes getInstance() {
+        return instance;
     }
 
     private boolean setupEconomy() {
@@ -110,6 +114,7 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
 
     @Override
     public void onDisable() {
+        instance = null;
         disconnectDatabase();
         getLogger().info("Legendary Classes Plugin desligado!");
     }
@@ -197,10 +202,8 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível máximo: " + maxLevel),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aInferioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Armadura"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Ferramentas"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão é capaz de crafitar e usar: &eOuro&c, &bDiamante &ce &8Netherite"),
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita &dShulker Box"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &6Ouro, &bDiamante, &8Netherite"),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aEconomia:"),
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Custo: $ " + getClassCost(player, "Humano"))
@@ -218,9 +221,7 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível máximo: " + maxLevel),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aInferioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Armadura de: &bDiamante, &8Netherite"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Ferramentas de: &bDiamante, &8Netherite"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &bDiamante, &8Netherite"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão é capaz de crafitar e usar: &bDiamante &ce &8Netherite"),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aEconomia:"),
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Custo: $ " + getClassCost(player, "HumanoMercador"))
@@ -238,9 +239,7 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível máximo: " + maxLevel),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aInferioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Armadura"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Ferramentas"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &bDiamante, &8Netherite"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão é capaz de crafitar e usar &bDiamante &ce &8Netherite"),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aEconomia:"),
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Custo: $ " + getClassCost(player, "HumanoNobre"))
@@ -258,9 +257,8 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível máximo: " + maxLevel),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aInferioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Armadura de: &8Netherite"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Ferramentas de: &8Netherite"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &8Netherite"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão é capaz de crafitar: &8Netherite"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão é capaz de usar armadura: &bDiamante &ce &8Netherite"),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aSuperioridade:"),
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Pode Crafitar Armadura de: &bDiamante"),
@@ -284,9 +282,8 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível máximo: " + maxLevel),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aInferioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Armadura"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Ferramentas"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &bDiamante, &8Netherite"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão é capaz de crafitar Armadura e nem ferramentas"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &bDiamante &ce &8Netherite"),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aSuperioridade:"),
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Lança bolas de fogo que causam dano."),
@@ -307,9 +304,8 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível máximo: " + maxLevel),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aInferioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Armadura"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Ferramentas"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &bDiamante, &8Netherite"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão é capaz de crafitar Armadura e nem ferramentas"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &bDiamante &ce &8Netherite"),
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &cVulneravel ao sol."),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aSuperioridade:"),
@@ -331,9 +327,8 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível máximo: " + maxLevel),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aInferioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Armadura"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Ferramentas"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &bDiamante, &8Netherite"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão é capaz de crafitar Armadura e nem ferramentas"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &bDiamante &ce &8Netherite"),
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &cVulneravel ao sol."),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aSuperioridade:"),
@@ -356,11 +351,11 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível máximo: " + maxLevel),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aInferioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Armadura"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Ferramentas"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão é capaz de crafitar Armadura e nem ferramentas"),
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &8Netherite"),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aSuperioridade:"),
+                            ChatColor.translateAlternateColorCodes('&', "&aÉ capaz de usar a mesa de encantamento"),
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Se auto cura caso estiver encima da grama"),
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Faz com que todas as plantações ao seu redor, em uma área de 10x10 blocos, cresçam instantaneamente."),
                             "",
@@ -380,9 +375,8 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível máximo: " + maxLevel),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aInferioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Armadura"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Ferramentas"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &bDiamante, &8Netherite"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão é capaz de crafitar Armadura e nem ferramentas"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &bDiamante &ce &8Netherite"),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aSuperioridade:"),
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Revive esqueletos e zumbis para lutar ao seu lado dando sua vida em troca."),
@@ -427,9 +421,8 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível máximo: " + maxLevel),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aInferioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Armadura"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Ferramentas"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &bDiamante, &8Netherite"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão é capaz de crafitar Armadura e nem ferramentas"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &bDiamante &ce &8Netherite"),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aSuperioridade:"),
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Conjura uma tempestade de fogo que causa dano aos inimigos ao redor."),
@@ -450,11 +443,11 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível máximo: " + maxLevel),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aInferioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Armadura"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Ferramentas"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão é capaz de crafitar Armadura e nem ferramentas"),
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &8Netherite"),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aSuperioridade:"),
+                            ChatColor.translateAlternateColorCodes('&', "&aÉ capaz de usar a mesa de encantamento"),
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7IAplica veneno em inimigos quando estão na grama."),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aEconomia:"),
@@ -473,9 +466,8 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível máximo: " + maxLevel),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aInferioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Armadura"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Ferramentas"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &bDiamante, &8Netherite"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão é capaz de crafitar Armadura e nem ferramentas"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &bDiamante &ce &8Netherite"),
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue usar porção de cura."),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aSuperioridade:"),
@@ -497,9 +489,8 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível máximo: " + maxLevel),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aInferioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Armadura"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Ferramentas"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &bDiamante, &8Netherite"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão é capaz de crafitar Armadura e nem ferramentas"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &bDiamante &ce &8Netherite"),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aSuperioridade:"),
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Cura-se ao atacar inimigos."),
@@ -522,9 +513,8 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível máximo: " + maxLevel),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aInferioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Armadura"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Ferramentas"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &bDiamante, &8Netherite"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão é capaz de crafitar Armadura e nem ferramentas"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &bDiamante &ce &8Netherite"),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aSuperioridade:"),
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Conjura uma tempestade de fogo que causa dano aos inimigos ao redor."),
@@ -546,11 +536,11 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível máximo: " + maxLevel),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aInferioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Armadura"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Ferramentas"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão é capaz de crafitar Armadura e nem ferramentas"),
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &8Netherite"),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aSuperioridade:"),
+                            ChatColor.translateAlternateColorCodes('&', "&aÉ capaz de usar a mesa de encantamento"),
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Aplica resistencia em membros aliados quando está encima da grama."),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aEconomia:"),
@@ -593,9 +583,8 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível máximo: " + maxLevel),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aInferioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Armadura"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Ferramentas"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &bDiamante, &8Netherite"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão é capaz de crafitar Armadura e nem ferramentas"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &bDiamante &ce &8Netherite"),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aSuperioridade:"),
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Dano aumentado quando a fome do jogador está baixa."),
@@ -617,9 +606,8 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível máximo: " + maxLevel),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aInferioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Armadura"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Ferramentas"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &bDiamante, &8Netherite"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão é capaz de crafitar Armadura e nem ferramentas"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &bDiamante &ce &8Netherite"),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aSuperioridade:"),
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Causa um efeito de veneno em área."),
@@ -640,9 +628,8 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível máximo: " + maxLevel),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aInferioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Armadura"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Ferramentas"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &bDiamante, &8Netherite"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão é capaz de crafitar Armadura e nem ferramentas"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &bDiamante &ce &8Netherite"),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aSuperioridade:"),
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Lança lanças que causam dano a múltiplos inimigos em linha reta."),
@@ -664,9 +651,8 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível máximo: " + maxLevel),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aInferioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Armadura"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Ferramentas"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &bDiamante, &8Netherite"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão é capaz de crafitar Armadura e nem ferramentas"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &bDiamante &ce &8Netherite"),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aSuperioridade:"),
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Golpes causam dano extra e têm chance de matar instantaneamente."),
@@ -687,8 +673,7 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível máximo: " + maxLevel),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aInferioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Armadura"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Ferramentas"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão é capaz de crafitar Armadura e nem ferramentas"),
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &8Netherite"),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aSuperioridade:"),
@@ -711,11 +696,11 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível máximo: " + maxLevel),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aInferioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Armadura"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Ferramentas"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão é capaz de crafitar Armadura e nem ferramentas"),
+
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aSuperioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cPode equipar qualquer tipo de armadura."),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Pode equipar qualquer tipo de armadura."),
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Aplica Resistencia sobrehumana, Absorção sobrehumana, Força sobrehumana em si-mesmo."),
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Aplica efeitos de resistencia sobrehumana, absorção sobrehumana, força sobrehumana em aliados."),
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Aplica efeito de fraqueza em inimigos sobre blocos de: Areia, Netherreck, Area da Alma e Nether bricks."),
@@ -736,11 +721,11 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível máximo: " + maxLevel),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aInferioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Armadura"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão crafita Ferramentas"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &bDiamante, &8Netherite"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão é capaz de crafitar Armadura e nem ferramentas"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão consegue equipar Armadura de: &bDiamante &ce &8Netherite"),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aSuperioridade:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7É capaz de usar a mesa de encantamento"),
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Lança um poder de Ar explosivo."),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aEconomia:"),
@@ -759,10 +744,13 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível máximo: " + maxLevel),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aInferioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão possui nenhum tipo de inferioridade conhecida."),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão é capaz de crafitar Armadura e nem ferramentas"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão é capaz de usar as runas: &dEpico, &5Lendário &ce &bDivino"),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aSuperioridade:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7É capaz de usar a mesa de encantamento"),
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Lança uma bola de fogo que causa grande dano aos inimigos ao atingir."),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Consegue usar 2 tipos de Runa: &8Comum &7e &eRara ."),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aEconomia:"),
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Custo: $ " + getClassCost(player, "ReiMago"))
@@ -780,10 +768,13 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Nível máximo: " + maxLevel),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aInferioridade:"),
-                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão possui nenhum tipo de inferioridade conhecida."),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão é capaz de crafitar Armadura e nem ferramentas"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão é capaz de usar as runas: &5Lendário &ce &bDivino"),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aSuperioridade:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7É capaz de usar a mesa de encantamento"),
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Cria uma barreira invisível que absorve dano de ataques inimigos por um tempo."),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7Consegue usar 2 tipos de Runa: &8Comum, &eRara &7e &dEpico."),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aEconomia:"),
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Custo: $ " + getClassCost(player, "MagoRegente"))
@@ -804,6 +795,8 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &cNão possui nenhum tipo de inferioridade conhecida."),
                             "",
                             ChatColor.translateAlternateColorCodes('&', "&aSuperioridade:"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7É capaz de usar a mesa de encantamento"),
+                            ChatColor.translateAlternateColorCodes('&', "&a❙ &7É capaz de utilizar todos os tipos de runa"),
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Acesso total a &bMagia do Tempo!"),
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Acesso total a &bMagia de Restrição!"),
                             ChatColor.translateAlternateColorCodes('&', "&a❙ &7Acesso total a &bMagia de Transformação!"),
