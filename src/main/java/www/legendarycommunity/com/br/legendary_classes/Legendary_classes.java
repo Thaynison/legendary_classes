@@ -1239,7 +1239,7 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
             // Configurar o formato do chat
             String displayName = player.getDisplayName().replace("%", "%%");
             String message = event.getMessage().replace("%", "%%");
-            event.setFormat(formattedClassName.replace("%", "%%") + " §7" + displayName + " §f" + message);
+            event.setFormat(formattedClassName.replace("%", "%%") + " §7" + displayName + ": §f" + message);
         } else {
             getLogger().severe("Dados de classe não encontrados no cache para o jogador " + player.getName());
         }
