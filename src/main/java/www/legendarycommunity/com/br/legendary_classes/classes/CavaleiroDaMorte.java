@@ -136,8 +136,7 @@ public class CavaleiroDaMorte implements Listener {
 
     // Verifica se o item é uma armadura restrita
     private boolean isRestrictedArmor(ItemStack item) {
-        return blockCraft.isDiamond_Itens(item.getType()) ||
-                blockCraft.isNetherite_Itens(item.getType());
+        return blockCraft.isNetherite_Itens(item.getType());
     }
 
     @EventHandler

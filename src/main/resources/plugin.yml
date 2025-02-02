@@ -13,3 +13,36 @@ commands:
   classe:
     description: Abre o menu de seleção de classes.
     usage: /classe
+  nidavellir:
+    description: Teleporta para a Dimensão Nidavellir.
+    usage: /nidavellir
+  temploarcano:
+    description: Teleporta para o Templo Arcano.
+    usage: /temploarcano
+  magosrunas:
+    description: Abre o sistema de craft de runas
+    usage: /magosrunas <nome_do_jogador>
+  anoesrunas:
+    description: Abre o sistema de craft de runas encantadas
+    usage: /anoesrunas <nome_do_jogador>
+  anoesrunas2:
+    description: Abre o sistema de craft de runas encantadas
+    usage: /anoesrunas2 <nome_do_jogador>
+  anoesrunas3:
+    description: Abre o sistema de craft de runas encantadas
+    usage: /anoesrunas3 <nome_do_jogador>
+  anoesrunas4:
+    description: Abre o sistema de craft de runas encantadas
+    usage: /anoesrunas4 <nome_do_jogador>
+  anoesrunas5:
+    description: Abre o sistema de craft de runas encantadas
+    usage: /anoesrunas5 <nome_do_jogador>
+  anoesrunas6:
+    description: Abre o sistema de craft de runas encantadas
+    usage: /anoesrunas6 <nome_do_jogador>
+  anoesrunas7:
+    description: Abre o sistema de craft de runas encantadas
+    usage: /anoesrunas7 <nome_do_jogador>
+  anoesrunas8:
+    description: Abre o sistema de craft de runas encantadas
+    usage: /anoesrunas8 <nome_do_jogador>

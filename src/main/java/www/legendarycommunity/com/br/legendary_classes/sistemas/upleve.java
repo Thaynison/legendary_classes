@@ -7,18 +7,21 @@ public class upleve {
 
     public static class ClassData {
 
-        private final int cost;
+        private final Number cost;
 
-        public ClassData(
-                int cost
-        ) {
+        public ClassData(int cost) {
             this.cost = cost;
         }
-        
-        public int getCost() {
+
+        public ClassData(long cost) {
+            this.cost = cost;
+        }
+
+        public Number getCost() {
             return cost;
         }
     }
+
 
     private static final Map<String, Map<Integer, ClassData>> classRequirements = new HashMap<>();
 
@@ -189,7 +192,7 @@ public class upleve {
         // Configura os requisitos por nível para a classe "HumanoNobre"
         Map<Integer, ClassData> cavaleiroDaPesteRequirements = new HashMap<>();
         for (int level = 1; level <= 100; level++) {
-            int cost = 640000000 * level;
+            long cost = 1340000000L * level; // Agora o cálculo usa 'long' para evitar overflow
 
             cavaleiroDaPesteRequirements.put(level, new ClassData(cost));
         }
@@ -198,7 +201,7 @@ public class upleve {
         // Configura os requisitos por nível para a classe "HumanoNobre"
         Map<Integer, ClassData> cavaleiroDaGuerraRequirements = new HashMap<>();
         for (int level = 1; level <= 100; level++) {
-            int cost = 740000000 * level;
+            long cost = 9740000000L * level; // Agora o cálculo usa 'long' para evitar overflow
 
             cavaleiroDaGuerraRequirements.put(level, new ClassData(cost));
         }
@@ -207,16 +210,16 @@ public class upleve {
         // Configura os requisitos por nível para a classe "HumanoNobre"
         Map<Integer, ClassData> cavaleiroDaMorteRequirements = new HashMap<>();
         for (int level = 1; level <= 100; level++) {
-             int cost = 980000000 * level;
+            long cost = 29330000000L * level; // Agora o cálculo usa 'long' para evitar overflow
 
             cavaleiroDaMorteRequirements.put(level, new ClassData(cost));
         }
         classRequirements.put("CavaleiroDaMorte", cavaleiroDaMorteRequirements);
 
-        // Configura os requisitos por nível para a classe "HumanoNobre"
+        // Configura os requisitos por nível para a classe "Poseidon"
         Map<Integer, ClassData> poseidonRequirements = new HashMap<>();
         for (int level = 1; level <= 100; level++) {
-            int cost = 995000000 * level;
+            long cost = 97630000000L * level; // Agora o cálculo usa 'long' para evitar overflow
 
             poseidonRequirements.put(level, new ClassData(cost));
         }
@@ -225,7 +228,7 @@ public class upleve {
         // Configura os requisitos por nível para a classe "HumanoNobre"
         Map<Integer, ClassData> aresRequirements = new HashMap<>();
         for (int level = 1; level <= 100; level++) {
-            int cost = 105000000 * level;
+            long cost = 357380000000L * level; // Agora o cálculo usa 'long' para evitar overflow
 
             aresRequirements.put(level, new ClassData(cost));
         }
@@ -234,7 +237,7 @@ public class upleve {
         // Configura os requisitos por nível para a classe "HumanoNobre"
         Map<Integer, ClassData> overlordRequirements = new HashMap<>();
         for (int level = 1; level <= 100; level++) {
-            int cost = 110000000 * level;
+            long cost = 987380000000L * level; // Agora o cálculo usa 'long' para evitar overflow
 
             overlordRequirements.put(level, new ClassData(cost));
         }
@@ -243,7 +246,7 @@ public class upleve {
         // Configura os requisitos por nível para a classe "Mago"
         Map<Integer, ClassData> magoRequirements = new HashMap<>();
         for (int level = 1; level <= 100; level++) {
-            int cost = 115000000 * level;
+            long cost = 2387380000000L * level; // Agora o cálculo usa 'long' para evitar overflow
 
             magoRequirements.put(level, new ClassData(cost));
         }
@@ -252,7 +255,7 @@ public class upleve {
         // Configura os requisitos por nível para a classe "MagoRegente"
         Map<Integer, ClassData> magoRegenteRequirements = new HashMap<>();
         for (int level = 1; level <= 100; level++) {
-            int cost = 120000000 * level;
+            long cost = 5387380000000L * level; // Agora o cálculo usa 'long' para evitar overflow
 
             magoRegenteRequirements.put(level, new ClassData(cost));
         }
@@ -261,7 +264,7 @@ public class upleve {
         // Configura os requisitos por nível para a classe "MagoRegente"
         Map<Integer, ClassData> ReiMagoRequirements = new HashMap<>();
         for (int level = 1; level <= 100; level++) {
-            int cost = 128000000 * level;
+            long cost = 16787380000000L * level; // Agora o cálculo usa 'long' para evitar overflow
 
             ReiMagoRequirements.put(level, new ClassData(cost));
         }

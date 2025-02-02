@@ -5,6 +5,8 @@ import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -22,13 +24,21 @@ import org.bukkit.plugin.java.JavaPlugin;
 import net.milkbowl.vault.economy.Economy;
 
 import www.legendarycommunity.com.br.legendary_classes.classes.*;
+import www.legendarycommunity.com.br.legendary_classes.guis.anoesRunasGui;
+import www.legendarycommunity.com.br.legendary_classes.guis.magosRunasGui;
+import www.legendarycommunity.com.br.legendary_classes.guis.nidavellirGui;
+import www.legendarycommunity.com.br.legendary_classes.guis.templunsGui;
+import www.legendarycommunity.com.br.legendary_classes.runas.useRunasForjar;
 import www.legendarycommunity.com.br.legendary_classes.sistemas.upleve;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.*;
 
 import static net.sacredlabyrinth.phaed.simpleclans.chat.ChatHandler.plugin;
@@ -39,12 +49,15 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
     private Connection connection;
     private Economy economy;
     private final HashMap<UUID, PlayerClassData> playerDataCache = new HashMap<>();
+    private File RunasFile;
+    private FileConfiguration RunasConfig;
 
     @Override
     public void onEnable() {
         instance = this;
         saveDefaultConfig();
         connectDatabase();
+        saveDefaultRunasConfig();
 
         // Setup Vault economy
         if (!setupEconomy()) {
@@ -59,6 +72,8 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
     }
 
     private void registerEvents() {
+
+        // SISTEMA DE CLASSES
         getServer().getPluginManager().registerEvents(this, this);
         getServer().getPluginManager().registerEvents(new Humano(this), this);
         getServer().getPluginManager().registerEvents(new HumanoMercador(this), this);
@@ -93,6 +108,32 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
         getServer().getPluginManager().registerEvents(new Lemiel(this), this);
         getServer().getPluginManager().registerEvents(new Mereoleona(this), this);
         getServer().getPluginManager().registerEvents(new DorothyUnsworth(this), this);
+
+
+
+        // SISTEMA DE RUNAS
+        getServer().getPluginManager().registerEvents(new useRunasForjar(this), this);
+
+
+        // SISTEMA DE COMANDOS
+        this.getCommand("nidavellir").setExecutor(new nidavellirGui(this));
+        getServer().getPluginManager().registerEvents(new nidavellirGui(this), this);
+
+        this.getCommand("temploarcano").setExecutor(new templunsGui(this));
+        getServer().getPluginManager().registerEvents(new templunsGui(this), this);
+
+        this.getCommand("magosrunas").setExecutor(new magosRunasGui(this));
+        getServer().getPluginManager().registerEvents(new magosRunasGui(this), this);
+
+        this.getCommand("anoesrunas").setExecutor(new anoesRunasGui(this));
+        this.getCommand("anoesrunas2").setExecutor(new anoesRunasGui(this));
+        this.getCommand("anoesrunas3").setExecutor(new anoesRunasGui(this));
+        this.getCommand("anoesrunas4").setExecutor(new anoesRunasGui(this));
+        this.getCommand("anoesrunas5").setExecutor(new anoesRunasGui(this));
+        this.getCommand("anoesrunas6").setExecutor(new anoesRunasGui(this));
+        this.getCommand("anoesrunas7").setExecutor(new anoesRunasGui(this));
+        this.getCommand("anoesrunas8").setExecutor(new anoesRunasGui(this));
+        getServer().getPluginManager().registerEvents(new anoesRunasGui(this), this);
 
     }
 
@@ -892,15 +933,20 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
                 upleve.ClassData classData = upleve.getClassData(className, currentLevel + 1);
 
                 if (classData != null) {
-                    double cost = classData.getCost();
-                    return String.format("%.2f", cost);
+                    Number costNumber = classData.getCost(); // Pode ser int ou long
+                    double cost = costNumber.doubleValue(); // Convertendo corretamente para double
+
+                    // Usando DecimalFormat para formatar sem o símbolo de moeda
+                    DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
+                    return decimalFormat.format(cost); // Retorna o valor formatado sem o "R$"
                 }
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return "Sem custo!.";
+        return "Sem custo!";
     }
+
 
     private ItemStack createMenuItem(Material material, String name, String... lore) {
         ItemStack item = new ItemStack(material);
@@ -962,7 +1008,10 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
                     player.sendMessage(ChatColor.RED + "Custo não encontrado para esta classe.");
                     return false;
                 }
-                double cost = classData.getCost();
+
+                Number costNumber = classData.getCost(); // Pode ser int ou long
+                double cost = costNumber.doubleValue(); // Convertendo corretamente para double
+
                 if (economy.getBalance(player) >= cost) {
                     economy.withdrawPlayer(player, cost);
                     return true;
@@ -975,6 +1024,7 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
         }
         return false;
     }
+
 
     private ItemStack chanceGiveItem() {
         // Criar os itens
@@ -1002,6 +1052,7 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
         lore2.add("");
         lore2.add("§aDescrição:");
         lore2.add("§a❙ §7Usado para dar imortabilidade por 1 minuto ao usuario.");
+        lore2.add("§a❙ §7As vezes pode falhar ao enfrentar: §cEnder Dragon, Wither, Demônios e Mandamentos.");
         lore2.add("");
         lore2.add("§aEconomia:");
         lore2.add("§a❙ §4Proibido a comercialização");
@@ -1018,6 +1069,7 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
         lore3.add("");
         lore3.add("§aDescrição:");
         lore3.add("§a❙ §7Usado para dar a força dos deuses por 1 minuto ao usuario.");
+        lore3.add("§a❙ §7As vezes pode falhar ao enfrentar: §cEnder Dragon, Wither, Demônios e Mandamentos.");
         lore3.add("");
         lore3.add("§aEconomia:");
         lore3.add("§a❙ §4Proibido a comercialização");
@@ -1245,7 +1297,16 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
         }
     }
 
-
+    public FileConfiguration getRunasConfig() {
+        return RunasConfig;
+    }
+    private void saveDefaultRunasConfig() {
+        RunasFile = new File(getDataFolder(), "runas.yml");
+        if (!RunasFile.exists()) {
+            saveResource("runas.yml", false);
+        }
+        RunasConfig = YamlConfiguration.loadConfiguration(RunasFile);
+    }
 
 
 }

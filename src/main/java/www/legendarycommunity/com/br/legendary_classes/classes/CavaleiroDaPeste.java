@@ -142,8 +142,7 @@ public class CavaleiroDaPeste implements Listener {
 
     // Verifica se o item é uma armadura restrita
     private boolean isRestrictedArmor(ItemStack item) {
-        return blockCraft.isDiamond_Itens(item.getType()) ||
-                blockCraft.isNetherite_Itens(item.getType());
+        return blockCraft.isNetherite_Itens(item.getType());
     }
 
     @EventHandler
@@ -174,6 +173,7 @@ public class CavaleiroDaPeste implements Listener {
                         }
                     }
                     livingEntity.addPotionEffect(new PotionEffect(PotionEffectType.POISON, 60, 5));
+                    livingEntity.addPotionEffect(new PotionEffect(PotionEffectType.WITHER, 60, 5));
                 }
             }
         }
