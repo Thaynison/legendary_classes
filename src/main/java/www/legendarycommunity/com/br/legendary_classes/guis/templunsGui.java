@@ -81,23 +81,20 @@ public class templunsGui implements CommandExecutor, Listener {
             int slot = event.getSlot();
 
             if (slot == 13) {
-                // Obtendo o mundo "hardcore"
+                // player.sendMessage(ChatColor.YELLOW + "Clicou no item de teleporte.");
                 World hardcoreWorld = Bukkit.getWorld("world");
+
                 if (hardcoreWorld == null) {
-                    // player.sendMessage(ChatColor.RED + "O mundo hardcore não está carregado.");
+                    player.sendMessage(ChatColor.RED + "O mundo hardcore não está carregado.");
                     return;
                 }
 
-                // Verificando se o jogador está em outro mundo
-                if (!player.getWorld().equals(hardcoreWorld)) {
-                    // Teleportando o jogador para o mundo "hardcore"
-                    Location targetLocation = new Location(hardcoreWorld, -17309.5, 165, -235626.5);
-                    player.teleport(targetLocation);
-                    // player.sendMessage(ChatColor.GREEN + "Você foi teleportado para a Dimensão Hardcore!");
-                } else {
-                    // player.sendMessage(ChatColor.YELLOW + "Você já está no mundo Hardcore.");
-                }
+                // player.sendMessage(ChatColor.GREEN + "Mundo carregado, tentando teleportar...");
+                Location targetLocation = new Location(hardcoreWorld, -17309.5, 165, -235626.5);
+                player.teleport(targetLocation);
+                player.sendMessage(ChatColor.GREEN + "Teleportado com sucesso!");
             }
+
         }
     }
 
@@ -109,7 +106,7 @@ public class templunsGui implements CommandExecutor, Listener {
         }
 
         // Lista de classes permitidas
-        List<String> allowedClasses = List.of("Druida", "Driade", "TuathaDeDanann", "Overlord", "Mago", "MagoRegente", "ReiMago", "AinzOoalGown", "Lemial");
+        List<String> allowedClasses = List.of("Druida", "Driade", "TuathaDeDanann", "Overlord", "Mago", "MagoRegente", "ReiMago", "AinzOoalGown", "Lemiel");
 
         // Verifica se a classe do jogador está na lista de classes permitidas
         return allowedClasses.contains(playerClassData.getClassName());

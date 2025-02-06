@@ -42,7 +42,7 @@ public class magosRunasGui implements CommandExecutor, Listener {
         classRunes.put("MagoRegente", List.of("common", "rare", "epic", "legendary"));
         classRunes.put("ReiMago ", List.of("common", "rare", "epic", "legendary", "divine"));
         classRunes.put("AinzOoalGown ", List.of("common", "rare", "epic", "legendary", "divine"));
-        classRunes.put("Lemial", List.of("common", "rare", "epic", "legendary", "divine"));
+        classRunes.put("Lemiel", List.of("common", "rare", "epic", "legendary", "divine"));
     }
 
     private void initializeRuneStarCosts() {
