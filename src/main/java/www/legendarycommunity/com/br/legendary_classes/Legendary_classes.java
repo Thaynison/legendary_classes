@@ -1315,6 +1315,7 @@ public final class Legendary_classes extends JavaPlugin implements Listener {
     public FileConfiguration getRunasConfig() {
         return RunasConfig;
     }
+
     private void saveDefaultRunasConfig() {
         RunasFile = new File(getDataFolder(), "runas.yml");
         if (!RunasFile.exists()) {
